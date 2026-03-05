@@ -127,7 +127,7 @@ def parse_concepts_from_file(domain_name: str) -> list:
 
 # ── OpenAI content generation ─────────────────────────────────────────────────
 
-def generate_learning_content(concept: dict, domain: str, learned: list, graph: dict) -> dict:
+def generate_learning_content(concept: dict, domain: str, learned: list, graph: dict, session_count: int = 1) -> dict:
     """
     Call gpt-4o-mini to generate structured learning content.
     Returns a dict matching the concept_template.md structure.
@@ -148,7 +148,7 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
 输出格式：返回一个JSON对象，包含以下键：
 
 - "concept_name": 字符串（保留英文原名，加中文副标题，如"Multi-Agent Systems · 多智能体系统"）
-- "email_subject": 字符串（吸引人的中文主题，如"Day 2：多个AI如何协作完成复杂任务？"）
+- "email_subject": 字符串（吸引人的中文主题，必须以"Day {session_count}："开头，如"Day {session_count}：今日概念的核心问题？"）
 - "definition": 字符串（深入定义，4-6句话，含技术本质、核心特征、与相关概念的区别）
 - "key_terms": 字符串（6-10个核心术语，每条格式：• 英文术语名（中文译名）：2-3句详细中文解释；术语名必须保留英文）
 - "simple_example": 字符串（2-3段生动类比或场景故事，具体有画面感）
@@ -565,6 +565,7 @@ def main():
         domain=domain,
         learned=state["learned_concepts"],
         graph=state["knowledge_graph"],
+        session_count=state["session_count"],
     )
 
     # ── Update knowledge graph (code-managed, not model-generated) ────────────
