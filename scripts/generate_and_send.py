@@ -110,7 +110,7 @@ def parse_concepts_from_file(domain_name: str) -> list:
     text = filepath.read_text(encoding="utf-8")
 
     concepts = []
-    current_group = "General"
+    current_group = None  # None means we haven't entered any ## section yet
     for line in text.splitlines():
         line = line.strip()
         if not line or line == "---":
@@ -119,7 +119,8 @@ def parse_concepts_from_file(domain_name: str) -> list:
             current_group = line[3:].strip()
         elif line.startswith("#"):
             continue
-        else:
+        elif current_group is not None:
+            # Only collect concept lines after the first ## heading
             concepts.append({"name": line, "group": current_group})
     return concepts
 
@@ -207,10 +208,13 @@ def mermaid_to_image_url(mermaid_code: str) -> str:
 
 # ── HTML email builder ────────────────────────────────────────────────────────
 
-def _section(title: str, body: str, icon: str = "") -> str:
-    if not body or body.strip().upper() in ("N/A", ""):
+def _section(title: str, body, icon: str = "") -> str:
+    # Normalize: list -> newline-joined string
+    if isinstance(body, list):
+        body = "\n".join(str(item) for item in body)
+    if not body or str(body).strip().upper() in ("N/A", ""):
         return ""
-    body_html = body.replace("\n", "<br>")
+    body_html = str(body).replace("\n", "<br>")
     # Convert markdown links [text](url) -> <a href="url">text</a>
     body_html = re.sub(r'\[([^\]]+)\]\((https?://[^\)]+)\)', r'<a href="\2">\1</a>', body_html)
     # Convert bullet character
