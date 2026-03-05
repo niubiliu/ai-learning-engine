@@ -34,7 +34,7 @@ KM_DIR     = REF_DIR / "knowledge_map"
 OPENAI_API_KEY     = os.environ["OPENAI_API_KEY"]
 GMAIL_ADDRESS      = os.environ["GMAIL_ADDRESS"]
 GMAIL_APP_PASSWORD = os.environ["GMAIL_APP_PASSWORD"]
-RECIPIENT_EMAIL    = os.environ["RECIPIENT_EMAIL"]
+RECIPIENT_EMAILS   = [e.strip() for e in os.environ["RECIPIENT_EMAIL"].split(",") if e.strip()]
 GITHUB_PAGES_URL   = os.environ.get("GITHUB_PAGES_URL", "")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
@@ -148,7 +148,6 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
 输出格式：返回一个JSON对象，包含以下键：
 
 - "concept_name": 字符串（保留英文原名，加中文副标题，如"Multi-Agent Systems · 多智能体系统"）
-- "email_subject": 字符串（吸引人的中文主题，必须以"Day {session_count}："开头，如"Day {session_count}：今日概念的核心问题？"）
 - "definition": 字符串（深入定义，4-6句话，含技术本质、核心特征、与相关概念的区别）
 - "key_terms": 字符串（6-10个核心术语，每条格式：• 英文术语名（中文译名）：2-3句详细中文解释；术语名必须保留英文）
 - "simple_example": 字符串（2-3段生动类比或场景故事，具体有画面感）
@@ -390,12 +389,12 @@ def send_email(subject: str, html_body: str):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"]    = GMAIL_ADDRESS
-    msg["To"]      = RECIPIENT_EMAIL
+    msg["To"]      = ", ".join(RECIPIENT_EMAILS)
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
         server.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
-        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAIL, msg.as_string())
+        server.sendmail(GMAIL_ADDRESS, RECIPIENT_EMAILS, msg.as_string())
 
 
 # ── GitHub Pages knowledge graph ──────────────────────────────────────────────
@@ -617,7 +616,8 @@ def main():
         mermaid_img_url=mermaid_img_url,
         graph_url=GITHUB_PAGES_URL,
     )
-    subject = content.get("email_subject", f"AI Learning #{state['session_count']}: {concept['name']}")
+    concept_name = content.get("concept_name", concept["name"])
+    subject = f"Day {state['session_count']} {concept_name}"
     send_email(subject, html_body)
     print(f"Email sent: {subject}")
 
