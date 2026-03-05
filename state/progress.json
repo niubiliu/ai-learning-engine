@@ -1,53 +1,149 @@
 {
-  "session_count": 0,
+  "session_count": 1,
   "current_domain_index": 0,
-  "current_concept_index": 0,
-  "learned_concepts": [],
+  "current_concept_index": 1,
+  "learned_concepts": [
+    "AI Agents"
+  ],
   "knowledge_graph": {
     "nodes": [
       {
         "id": "AI",
         "label": "AI",
         "group": "root",
-        "color": { "background": "#ffffff", "border": "#cccccc" }
+        "color": {
+          "background": "#ffffff",
+          "border": "#cccccc"
+        }
       },
       {
         "id": "Systems",
         "label": "Systems",
         "group": "Systems",
-        "color": { "background": "#667eea", "border": "#4a5cd4" }
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       },
       {
         "id": "LLM Capabilities",
         "label": "LLM Capabilities",
         "group": "LLM Capabilities",
-        "color": { "background": "#f093fb", "border": "#d070e0" }
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       },
       {
         "id": "Applications",
         "label": "Applications",
         "group": "Applications",
-        "color": { "background": "#4facfe", "border": "#2d8fe0" }
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       },
       {
         "id": "Model Principles",
         "label": "Model Principles",
         "group": "Model Principles",
-        "color": { "background": "#43e97b", "border": "#2cc45a" }
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       },
       {
         "id": "Math Foundations",
         "label": "Math Foundations",
         "group": "Math Foundations",
-        "color": { "background": "#fa8231", "border": "#e06010" }
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
+      },
+      {
+        "id": "B",
+        "label": "AI Agents",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "C",
+        "label": "Autonomous Systems",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "D",
+        "label": "Smart Agents",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "E",
+        "label": "Multi-Agent Systems",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
-      { "from": "AI", "to": "Systems",          "label": "includes" },
-      { "from": "AI", "to": "LLM Capabilities", "label": "includes" },
-      { "from": "AI", "to": "Applications",     "label": "includes" },
-      { "from": "AI", "to": "Model Principles", "label": "includes" },
-      { "from": "AI", "to": "Math Foundations", "label": "includes" }
+      {
+        "from": "AI",
+        "to": "Systems",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "LLM Capabilities",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Applications",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Model Principles",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Math Foundations",
+        "label": "includes"
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "label": "includes"
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "label": "is a type of"
+      },
+      {
+        "from": "B",
+        "to": "D",
+        "label": "is a type of"
+      },
+      {
+        "from": "B",
+        "to": "E",
+        "label": "can be part of"
+      }
     ]
   }
 }

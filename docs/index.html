@@ -24,15 +24,25 @@
       border-bottom: 1px solid #30363d;
       flex-wrap: wrap;
     }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8b949e; }
-    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #8b949e;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
     #graph { width: 100%; height: calc(100vh - 100px); }
   </style>
 </head>
 <body>
   <div id="header">
     <h1>AI Learning Knowledge Graph</h1>
-    <div class="meta">Session #0 &nbsp;|&nbsp; 6 concepts &nbsp;|&nbsp; Initialized</div>
+    <div class="meta">Session #1 &nbsp;|&nbsp; 10 concepts &nbsp;|&nbsp; Updated 2026-03-05</div>
   </div>
   <div id="legend">
     <div class="legend-item"><div class="legend-dot" style="background:#667eea"></div> Systems</div>
@@ -43,30 +53,19 @@
   </div>
   <div id="graph"></div>
   <script>
-    const nodesData = [
-      {"id":"AI","label":"AI","group":"root","color":{"background":"#ffffff","border":"#cccccc"}},
-      {"id":"Systems","label":"Systems","group":"Systems","color":{"background":"#667eea","border":"#4a5cd4"}},
-      {"id":"LLM Capabilities","label":"LLM Capabilities","group":"LLM Capabilities","color":{"background":"#f093fb","border":"#d070e0"}},
-      {"id":"Applications","label":"Applications","group":"Applications","color":{"background":"#4facfe","border":"#2d8fe0"}},
-      {"id":"Model Principles","label":"Model Principles","group":"Model Principles","color":{"background":"#43e97b","border":"#2cc45a"}},
-      {"id":"Math Foundations","label":"Math Foundations","group":"Math Foundations","color":{"background":"#fa8231","border":"#e06010"}}
-    ];
-    const edgesData = [
-      {"from":"AI","to":"Systems","label":"includes"},
-      {"from":"AI","to":"LLM Capabilities","label":"includes"},
-      {"from":"AI","to":"Applications","label":"includes"},
-      {"from":"AI","to":"Model Principles","label":"includes"},
-      {"from":"AI","to":"Math Foundations","label":"includes"}
-    ];
+    const nodesData = [{"id": "AI", "label": "AI", "group": "root", "color": {"background": "#ffffff", "border": "#cccccc"}}, {"id": "Systems", "label": "Systems", "group": "Systems", "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "LLM Capabilities", "label": "LLM Capabilities", "group": "LLM Capabilities", "color": {"background": "#f093fb", "border": "#d070e0"}}, {"id": "Applications", "label": "Applications", "group": "Applications", "color": {"background": "#4facfe", "border": "#2d8fe0"}}, {"id": "Model Principles", "label": "Model Principles", "group": "Model Principles", "color": {"background": "#43e97b", "border": "#2cc45a"}}, {"id": "Math Foundations", "label": "Math Foundations", "group": "Math Foundations", "color": {"background": "#fa8231", "border": "#e06010"}}, {"id": "B", "label": "AI Agents", "group": "Systems", "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "C", "label": "Autonomous Systems", "group": "Systems", "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "D", "label": "Smart Agents", "group": "Systems", "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "E", "label": "Multi-Agent Systems", "group": "Systems", "color": {"background": "#667eea", "border": "#4a5cd4"}}];
+    const edgesData = [{"from": "AI", "to": "Systems", "label": "includes"}, {"from": "AI", "to": "LLM Capabilities", "label": "includes"}, {"from": "AI", "to": "Applications", "label": "includes"}, {"from": "AI", "to": "Model Principles", "label": "includes"}, {"from": "AI", "to": "Math Foundations", "label": "includes"}, {"from": "A", "to": "B", "label": "includes"}, {"from": "B", "to": "C", "label": "is a type of"}, {"from": "B", "to": "D", "label": "is a type of"}, {"from": "B", "to": "E", "label": "can be part of"}];
 
     const nodes = new vis.DataSet(nodesData);
     const edges = new vis.DataSet(edgesData);
 
     const options = {
       nodes: {
-        shape: "dot", size: 20,
+        shape: "dot",
+        size: 20,
         font: { size: 13, color: "#e6edf3", face: "sans-serif" },
-        borderWidth: 2, shadow: true,
+        borderWidth: 2,
+        shadow: true,
       },
       edges: {
         color: { color: "#484f58", opacity: 0.8, highlight: "#667eea" },
@@ -77,9 +76,19 @@
       },
       physics: {
         stabilization: { iterations: 250, fit: true },
-        barnesHut: { gravitationalConstant: -9000, springLength: 130, springConstant: 0.04, damping: 0.12 },
+        barnesHut: {
+          gravitationalConstant: -9000,
+          springLength: 130,
+          springConstant: 0.04,
+          damping: 0.12,
+        },
       },
-      interaction: { hover: true, tooltipDelay: 150, navigationButtons: true, keyboard: true },
+      interaction: {
+        hover: true,
+        tooltipDelay: 150,
+        navigationButtons: true,
+        keyboard: true,
+      },
       layout: { improvedLayout: true },
     };
 
