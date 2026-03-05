@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Learning Knowledge Graph</title>
+  <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    #header {
+      padding: 18px 28px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #header h1 { font-size: 20px; font-weight: 700; }
+    #header .meta { font-size: 13px; opacity: 0.85; }
+    #legend {
+      display: flex;
+      gap: 16px;
+      padding: 10px 28px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      flex-wrap: wrap;
+    }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8b949e; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    #graph { width: 100%; height: calc(100vh - 100px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h1>AI Learning Knowledge Graph</h1>
+    <div class="meta">Session #0 &nbsp;|&nbsp; 6 concepts &nbsp;|&nbsp; Initialized</div>
+  </div>
+  <div id="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#667eea"></div> Systems</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#f093fb"></div> LLM Capabilities</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4facfe"></div> Applications</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#43e97b"></div> Model Principles</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fa8231"></div> Math Foundations</div>
+  </div>
+  <div id="graph"></div>
+  <script>
+    const nodesData = [
+      {"id":"AI","label":"AI","group":"root","color":{"background":"#ffffff","border":"#cccccc"}},
+      {"id":"Systems","label":"Systems","group":"Systems","color":{"background":"#667eea","border":"#4a5cd4"}},
+      {"id":"LLM Capabilities","label":"LLM Capabilities","group":"LLM Capabilities","color":{"background":"#f093fb","border":"#d070e0"}},
+      {"id":"Applications","label":"Applications","group":"Applications","color":{"background":"#4facfe","border":"#2d8fe0"}},
+      {"id":"Model Principles","label":"Model Principles","group":"Model Principles","color":{"background":"#43e97b","border":"#2cc45a"}},
+      {"id":"Math Foundations","label":"Math Foundations","group":"Math Foundations","color":{"background":"#fa8231","border":"#e06010"}}
+    ];
+    const edgesData = [
+      {"from":"AI","to":"Systems","label":"includes"},
+      {"from":"AI","to":"LLM Capabilities","label":"includes"},
+      {"from":"AI","to":"Applications","label":"includes"},
+      {"from":"AI","to":"Model Principles","label":"includes"},
+      {"from":"AI","to":"Math Foundations","label":"includes"}
+    ];
+
+    const nodes = new vis.DataSet(nodesData);
+    const edges = new vis.DataSet(edgesData);
+
+    const options = {
+      nodes: {
+        shape: "dot", size: 20,
+        font: { size: 13, color: "#e6edf3", face: "sans-serif" },
+        borderWidth: 2, shadow: true,
+      },
+      edges: {
+        color: { color: "#484f58", opacity: 0.8, highlight: "#667eea" },
+        font: { size: 10, color: "#8b949e", align: "middle" },
+        smooth: { type: "continuous" },
+        arrows: { to: { enabled: true, scaleFactor: 0.6 } },
+        width: 1.5,
+      },
+      physics: {
+        stabilization: { iterations: 250, fit: true },
+        barnesHut: { gravitationalConstant: -9000, springLength: 130, springConstant: 0.04, damping: 0.12 },
+      },
+      interaction: { hover: true, tooltipDelay: 150, navigationButtons: true, keyboard: true },
+      layout: { improvedLayout: true },
+    };
+
+    new vis.Network(document.getElementById("graph"), { nodes, edges }, options);
+  </script>
+</body>
+</html>
