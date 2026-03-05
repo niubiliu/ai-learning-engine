@@ -147,10 +147,10 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
 
 输出格式：返回一个JSON对象，包含以下键：
 
-- "concept_name": 字符串（中文名称+英文原名，如"多智能体系统 (Multi-Agent Systems)"）
+- "concept_name": 字符串（保留英文原名，加中文副标题，如"Multi-Agent Systems · 多智能体系统"）
 - "email_subject": 字符串（吸引人的中文主题，如"Day 2：多个AI如何协作完成复杂任务？"）
 - "definition": 字符串（深入定义，4-6句话，含技术本质、核心特征、与相关概念的区别）
-- "key_terms": 字符串（6-10个核心术语，每条格式：• 术语名：2-3句详细解释）
+- "key_terms": 字符串（6-10个核心术语，每条格式：• 英文术语名（中文译名）：2-3句详细中文解释；术语名必须保留英文）
 - "simple_example": 字符串（2-3段生动类比或场景故事，具体有画面感）
 - "applications": 字符串（6-8个真实应用场景，每条用 • 开头，含具体产品或公司名）
 - "system_flow": 字符串（详细工作流程，每步2-3句说明；不适用填"N/A"）
@@ -168,8 +168,8 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
 
 new_nodes/new_edges规则：
 - node id 必须是 snake_case 英文，如 "multi_agent_systems"
-- 域根节点 id："{domain.lower().replace(' ', '_')}"
-- 必须有一条边从域根节点连到新概念：{{"from": "{domain.lower().replace(' ', '_')}", "to": "<新节点id>", "label": "包含"}}
+- 域根节点的精确 id 是："{domain}"（大小写和空格必须与此完全一致，不得修改）
+- 必须有一条边从域根节点连到新概念：{{"from": "{domain}", "to": "<新节点id>", "label": "包含"}}
 - 颜色：{json.dumps(DOMAIN_COLORS[domain])}，group："{domain}"
 
 Mermaid图规则：所有节点id只用英文字母和下划线，节点文字用中文但不超过8个字，语法必须正确。
@@ -201,9 +201,13 @@ references必须是真实可访问的URL。"""
 # ── Mermaid → image URL ───────────────────────────────────────────────────────
 
 def mermaid_to_image_url(mermaid_code: str) -> str:
-    """Encode Mermaid code to a mermaid.ink image URL."""
+    """Encode Mermaid code to a mermaid.ink image URL. Returns empty string if too long."""
     encoded = base64.urlsafe_b64encode(mermaid_code.encode("utf-8")).decode("utf-8")
-    return f"https://mermaid.ink/img/{encoded}"
+    url = f"https://mermaid.ink/img/{encoded}"
+    # mermaid.ink fails silently above ~2000 chars; skip rather than show broken image
+    if len(url) > 2000:
+        return ""
+    return url
 
 
 # ── HTML email builder ────────────────────────────────────────────────────────
@@ -463,28 +467,38 @@ def update_graph_page(graph: dict, session_count: int):
     const nodes = new vis.DataSet(nodesData);
     const edges = new vis.DataSet(edgesData);
 
+    // Assign level by group for hierarchical layout
+    nodesData.forEach(n => {{
+      if (n.group === "root") {{ n.level = 0; n.size = 36; n.font = {{ size: 16, color: "#ffffff", bold: true }}; }}
+      else if (["Systems","LLM Capabilities","Applications","Model Principles","Math Foundations"].includes(n.id)) {{ n.level = 1; n.size = 26; n.font = {{ size: 14, color: "#e6edf3" }}; }}
+      else {{ n.level = 2; n.size = 18; n.font = {{ size: 12, color: "#e6edf3" }}; }}
+    }});
+
     const options = {{
       nodes: {{
         shape: "dot",
-        size: 20,
-        font: {{ size: 13, color: "#e6edf3", face: "sans-serif" }},
         borderWidth: 2,
         shadow: true,
       }},
       edges: {{
-        color: {{ color: "#484f58", opacity: 0.8, highlight: "#667eea" }},
+        color: {{ color: "#484f58", opacity: 0.9, highlight: "#667eea" }},
         font: {{ size: 10, color: "#8b949e", align: "middle" }},
-        smooth: {{ type: "continuous" }},
+        smooth: {{ type: "cubicBezier", forceDirection: "vertical", roundness: 0.4 }},
         arrows: {{ to: {{ enabled: true, scaleFactor: 0.6 }} }},
         width: 1.5,
       }},
-      physics: {{
-        stabilization: {{ iterations: 250, fit: true }},
-        barnesHut: {{
-          gravitationalConstant: -9000,
-          springLength: 130,
-          springConstant: 0.04,
-          damping: 0.12,
+      physics: {{ enabled: false }},
+      layout: {{
+        hierarchical: {{
+          enabled: true,
+          direction: "UD",
+          sortMethod: "directed",
+          levelSeparation: 120,
+          nodeSpacing: 160,
+          treeSpacing: 200,
+          blockShifting: true,
+          edgeMinimization: true,
+          parentCentralization: true,
         }},
       }},
       interaction: {{
@@ -492,8 +506,9 @@ def update_graph_page(graph: dict, session_count: int):
         tooltipDelay: 150,
         navigationButtons: true,
         keyboard: true,
+        zoomView: true,
+        dragView: true,
       }},
-      layout: {{ improvedLayout: true }},
     }};
 
     new vis.Network(document.getElementById("graph"), {{ nodes, edges }}, options);

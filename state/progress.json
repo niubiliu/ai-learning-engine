@@ -13,191 +13,67 @@
         "id": "AI",
         "label": "AI",
         "group": "root",
-        "color": {
-          "background": "#ffffff",
-          "border": "#cccccc"
-        }
+        "color": { "background": "#ffffff", "border": "#aaaaaa" }
       },
       {
         "id": "Systems",
         "label": "Systems",
         "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
+        "color": { "background": "#667eea", "border": "#4a5cd4" }
       },
       {
         "id": "LLM Capabilities",
         "label": "LLM Capabilities",
         "group": "LLM Capabilities",
-        "color": {
-          "background": "#f093fb",
-          "border": "#d070e0"
-        }
+        "color": { "background": "#f093fb", "border": "#d070e0" }
       },
       {
         "id": "Applications",
         "label": "Applications",
         "group": "Applications",
-        "color": {
-          "background": "#4facfe",
-          "border": "#2d8fe0"
-        }
+        "color": { "background": "#4facfe", "border": "#2d8fe0" }
       },
       {
         "id": "Model Principles",
         "label": "Model Principles",
         "group": "Model Principles",
-        "color": {
-          "background": "#43e97b",
-          "border": "#2cc45a"
-        }
+        "color": { "background": "#43e97b", "border": "#2cc45a" }
       },
       {
         "id": "Math Foundations",
         "label": "Math Foundations",
         "group": "Math Foundations",
-        "color": {
-          "background": "#fa8231",
-          "border": "#e06010"
-        }
+        "color": { "background": "#fa8231", "border": "#e06010" }
       },
       {
         "id": "ai_agents",
-        "label": "人工智能代理",
+        "label": "AI Agents",
         "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
+        "color": { "background": "#667eea", "border": "#4a5cd4" }
       },
       {
         "id": "multi_agent_systems",
-        "label": "多智能体系统",
+        "label": "Multi-Agent Systems",
         "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
-      },
-      {
-        "id": "applications",
-        "label": "实际应用",
-        "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
-      },
-      {
-        "id": "learning_algorithms",
-        "label": "学习算法",
-        "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
-      },
-      {
-        "id": "key_terms",
-        "label": "核心术语",
-        "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
-      },
-      {
-        "id": "technical_extensions",
-        "label": "相关技术",
-        "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
+        "color": { "background": "#667eea", "border": "#4a5cd4" }
       },
       {
         "id": "retrieval_augmented_generation",
-        "label": "检索增强生成",
+        "label": "RAG",
         "group": "Systems",
-        "color": {
-          "background": "#667eea",
-          "border": "#4a5cd4"
-        }
+        "color": { "background": "#667eea", "border": "#4a5cd4" }
       }
     ],
     "edges": [
-      {
-        "from": "AI",
-        "to": "Systems",
-        "label": "includes"
-      },
-      {
-        "from": "AI",
-        "to": "LLM Capabilities",
-        "label": "includes"
-      },
-      {
-        "from": "AI",
-        "to": "Applications",
-        "label": "includes"
-      },
-      {
-        "from": "AI",
-        "to": "Model Principles",
-        "label": "includes"
-      },
-      {
-        "from": "AI",
-        "to": "Math Foundations",
-        "label": "includes"
-      },
-      {
-        "from": "systems",
-        "to": "ai_agents",
-        "label": "包含"
-      },
-      {
-        "from": "ai_agents",
-        "to": "multi_agent_systems",
-        "label": "相关"
-      },
-      {
-        "from": "ai_agents",
-        "to": "applications",
-        "label": "用于"
-      },
-      {
-        "from": "ai_agents",
-        "to": "learning_algorithms",
-        "label": "基于"
-      },
-      {
-        "from": "systems",
-        "to": "multi_agent_systems",
-        "label": "包含"
-      },
-      {
-        "from": "multi_agent_systems",
-        "to": "applications",
-        "label": "包含"
-      },
-      {
-        "from": "multi_agent_systems",
-        "to": "key_terms",
-        "label": "包含"
-      },
-      {
-        "from": "multi_agent_systems",
-        "to": "technical_extensions",
-        "label": "包含"
-      },
-      {
-        "from": "systems",
-        "to": "retrieval_augmented_generation",
-        "label": "包含"
-      }
+      { "from": "AI", "to": "Systems",          "label": "includes" },
+      { "from": "AI", "to": "LLM Capabilities", "label": "includes" },
+      { "from": "AI", "to": "Applications",     "label": "includes" },
+      { "from": "AI", "to": "Model Principles", "label": "includes" },
+      { "from": "AI", "to": "Math Foundations", "label": "includes" },
+      { "from": "Systems", "to": "ai_agents",                     "label": "包含" },
+      { "from": "Systems", "to": "multi_agent_systems",           "label": "包含" },
+      { "from": "Systems", "to": "retrieval_augmented_generation","label": "包含" },
+      { "from": "ai_agents", "to": "multi_agent_systems",         "label": "扩展" }
     ]
   }
 }
