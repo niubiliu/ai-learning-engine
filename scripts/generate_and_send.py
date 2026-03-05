@@ -138,52 +138,59 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
     learned_summary = ", ".join(learned[-15:]) if learned else "none yet"
     existing_node_labels = [n["label"] for n in graph["nodes"]]
 
-    system_prompt = f"""You are an AI learning engine that generates structured daily learning emails.
-Follow the TEMPLATE and RULES exactly.
+    system_prompt = f"""你是一个AI学习引擎，负责生成每日结构化AI学习邮件。
+请严格遵循以下模板和规则，所有输出内容必须使用简体中文。
 
-TEMPLATE:
+模板（内容结构参考）：
 {template_text}
 
-RULES:
+规则：
 {rules_text}
 
-OUTPUT FORMAT:
-Return a single JSON object with these keys:
-- "concept_name": string
-- "email_subject": string  (engaging, e.g. "Day 3: How AI Agents Think and Act")
-- "definition": string  (concise, 2-4 sentences)
-- "key_terms": string  (bullet list using • character)
-- "simple_example": string  (1-2 paragraph analogy or story)
-- "applications": string  (bullet list of real use cases)
-- "system_flow": string  (numbered steps describing workflow, or "N/A" if not applicable)
-- "component_structure": string  (bullet list of components, or "N/A" if not applicable)
-- "technical_extensions": string  (bullet list of related techniques)
-- "current_status": string  (one of: widely adopted / emerging / experimental / being replaced — with brief explanation)
-- "alternatives": string  (bullet list)
-- "real_world_examples": string  (named real products/systems with 1-line description each)
-- "references": string  (bullet list with clickable markdown links: [title](url))
-- "mermaid_graph": string  (valid Mermaid diagram code showing today's concept and relationships to nearby concepts)
-- "new_nodes": array of {{"id": string, "label": string, "group": string, "color": {{"background": string, "border": string}}}}
-- "new_edges": array of {{"from": string, "to": string, "label": string}}
+输出格式：
+返回一个JSON对象，包含以下键：
+- "concept_name": 字符串（概念的中文名称，可附英文原名，如"AI智能体 (AI Agents)"）
+- "email_subject": 字符串（吸引人的邮件主题，中文，如"第3天：AI智能体如何思考与行动"）
+- "definition": 字符串（简明定义，2-4句话）
+- "key_terms": 字符串（使用 • 符号的要点列表，每个术语加简短解释）
+- "simple_example": 字符串（1-2段类比或故事，帮助理解）
+- "applications": 字符串（真实使用场景的要点列表）
+- "system_flow": 字符串（描述工作流程的编号步骤，不适用则填"N/A"）
+- "component_structure": 字符串（组件结构的要点列表，不适用则填"N/A"）
+- "technical_extensions": 字符串（相关技术的要点列表）
+- "current_status": 字符串（技术现状：广泛应用/新兴技术/实验阶段/逐渐被替代，加简短说明）
+- "alternatives": 字符串（替代方案的要点列表）
+- "real_world_examples": 字符串（真实AI产品/系统示例，每条一行）
+- "references": 字符串（参考资料列表，使用markdown链接格式：[标题](url)）
+- "mermaid_graph": 字符串（有效的Mermaid图代码，展示今日概念及其与相关概念的关系）
+- "new_nodes": 数组，每个元素格式：{{"id": string, "label": string, "group": string, "color": {{"background": string, "border": string}}}}
+- "new_edges": 数组，每个元素格式：{{"from": string, "to": string, "label": string}}
 
-For new_nodes: use group = the domain name "{domain}". Color background/border from these:
-{json.dumps(DOMAIN_COLORS[domain])}
+关于 new_nodes 和 new_edges 的规则（非常重要）：
+- node 的 id 必须使用英文下划线格式（snake_case），如 "ai_agents"、"tool_calling"
+- 已有节点的 id 包括：{json.dumps(existing_node_labels)} 中对应的 snake_case 版本
+- 域根节点 id 为："{domain.lower().replace(' ', '_')}"（如 "systems"、"llm_capabilities"）
+- 必须包含一条从域根节点到新概念节点的 edge，例如：{{"from": "{domain.lower().replace(' ', '_')}", "to": "<新节点id>", "label": "包含"}}
+- node 颜色使用：{json.dumps(DOMAIN_COLORS[domain])}
+- node 的 group 使用："{domain}"
 
-For mermaid_graph: use "graph LR" style. Show the concept connecting to its domain root and 2-3 related concepts.
-Keep it clean, 5-8 nodes max.
+关于 mermaid_graph：
+- 使用 "graph LR" 风格
+- 展示新概念与域根节点及2-3个相关概念的连接
+- 节点数量控制在5-8个
 
-IMPORTANT: References must use real, working URLs to papers, docs, or reputable articles."""
+重要：references 中必须使用真实、可访问的URL。"""
 
-    user_prompt = f"""Generate today's learning content:
+    user_prompt = f"""请为以下AI概念生成今日学习内容：
 
-Concept: {concept['name']}
-Domain: {domain}
-Group within domain: {concept['group']}
+概念：{concept['name']}
+所属领域：{domain}
+所属分组：{concept['group']}
 
-Already learned (do not re-explain, only reference): {learned_summary}
-Existing knowledge graph nodes: {existing_node_labels}
+已学过的概念（不要重复详细解释，可简要引用）：{learned_summary}
+知识图谱中已有节点：{existing_node_labels}
 
-Make the content educational, clear, and practical. Suitable for a developer learning AI systematically."""
+请生成内容详实、通俗易懂、实用性强的学习材料，适合系统学习AI的开发者阅读。"""
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -357,8 +364,8 @@ def build_html_email(content: dict, domain: str, session_num: int,
       </div>
     </div>
     <div class="footer">
-      AI Learning Engine &nbsp;&bull;&nbsp; Building systematic AI knowledge, one concept a day.<br>
-      See you tomorrow!
+      AI 学习引擎 &nbsp;&bull;&nbsp; 系统化构建 AI 知识体系，每天一个概念。<br>
+      明天继续，每天进步一点点！
     </div>
   </div>
 </body>
