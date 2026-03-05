@@ -1,12 +1,13 @@
 {
-  "session_count": 4,
+  "session_count": 5,
   "current_domain_index": 0,
-  "current_concept_index": 4,
+  "current_concept_index": 5,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
     "RAG (Retrieval-Augmented Generation)",
-    "Workflow Systems"
+    "Workflow Systems",
+    "Tool Calling"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -135,6 +136,51 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "tool_calling",
+        "label": "工具调用",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "tool_integration",
+        "label": "工具集成",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "api_calling",
+        "label": "API调用",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "dynamic_selection",
+        "label": "动态选择",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "context_awareness",
+        "label": "上下文感知",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -206,6 +252,31 @@
       {
         "from": "workflow_systems",
         "to": "performance_metrics",
+        "label": "相关"
+      },
+      {
+        "from": "Systems",
+        "to": "tool_calling",
+        "label": "包含"
+      },
+      {
+        "from": "tool_calling",
+        "to": "tool_integration",
+        "label": "相关"
+      },
+      {
+        "from": "tool_calling",
+        "to": "api_calling",
+        "label": "相关"
+      },
+      {
+        "from": "tool_calling",
+        "to": "dynamic_selection",
+        "label": "相关"
+      },
+      {
+        "from": "tool_calling",
+        "to": "context_awareness",
         "label": "相关"
       }
     ]
