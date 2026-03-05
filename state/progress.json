@@ -1,9 +1,10 @@
 {
-  "session_count": 1,
+  "session_count": 2,
   "current_domain_index": 0,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
-    "AI Agents"
+    "AI Agents",
+    "Multi-Agent Systems"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -96,6 +97,24 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "key_terms",
+        "label": "核心术语",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "technical_extensions",
+        "label": "相关技术",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -143,6 +162,26 @@
         "from": "ai_agents",
         "to": "learning_algorithms",
         "label": "基于"
+      },
+      {
+        "from": "systems",
+        "to": "multi_agent_systems",
+        "label": "包含"
+      },
+      {
+        "from": "multi_agent_systems",
+        "to": "applications",
+        "label": "包含"
+      },
+      {
+        "from": "multi_agent_systems",
+        "to": "key_terms",
+        "label": "包含"
+      },
+      {
+        "from": "multi_agent_systems",
+        "to": "technical_extensions",
+        "label": "包含"
       }
     ]
   }
