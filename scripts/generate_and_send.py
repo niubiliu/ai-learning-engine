@@ -467,11 +467,14 @@ def update_graph_page(graph: dict, session_count: int):
     const nodes = new vis.DataSet(nodesData);
     const edges = new vis.DataSet(edgesData);
 
-    // Assign level by group for hierarchical layout
+    // Use node.level set by Python (0=AI, 1=domain, 2=group, 3=concept)
+    const SIZE_MAP = {{ 0: 36, 1: 26, 2: 20, 3: 14 }};
+    const FONT_MAP  = {{ 0: 16, 1: 13, 2: 12, 3: 11 }};
     nodesData.forEach(n => {{
-      if (n.group === "root") {{ n.level = 0; n.size = 36; n.font = {{ size: 16, color: "#ffffff", bold: true }}; }}
-      else if (["Systems","LLM Capabilities","Applications","Model Principles","Math Foundations"].includes(n.id)) {{ n.level = 1; n.size = 26; n.font = {{ size: 14, color: "#e6edf3" }}; }}
-      else {{ n.level = 2; n.size = 18; n.font = {{ size: 12, color: "#e6edf3" }}; }}
+      const lv = (n.level !== undefined) ? n.level : 3;
+      n.level = lv;
+      n.size  = SIZE_MAP[lv] || 14;
+      n.font  = {{ size: FONT_MAP[lv] || 11, color: "#e6edf3" }};
     }});
 
     const options = {{
@@ -564,14 +567,42 @@ def main():
         graph=state["knowledge_graph"],
     )
 
-    # Update knowledge graph state
+    # ── Update knowledge graph (code-managed, not model-generated) ────────────
+    def _node_id(name: str) -> str:
+        """Convert name to snake_case id."""
+        import re as _re
+        s = _re.sub(r'\(.*?\)', '', name)        # strip parentheses
+        s = _re.sub(r'[^a-zA-Z0-9]+', '_', s)   # non-alphanumeric → _
+        return s.strip('_').lower()
+
     existing_ids = {n["id"] for n in state["knowledge_graph"]["nodes"]}
-    for node in content.get("new_nodes", []):
-        if node.get("id") and node["id"] not in existing_ids:
-            state["knowledge_graph"]["nodes"].append(node)
-            existing_ids.add(node["id"])
-    for edge in content.get("new_edges", []):
-        state["knowledge_graph"]["edges"].append(edge)
+
+    # Level 2: group node (e.g. "Core System Architectures")
+    group_name = concept["group"]
+    group_id   = _node_id(group_name)
+    if group_id not in existing_ids:
+        state["knowledge_graph"]["nodes"].append({
+            "id": group_id, "label": group_name,
+            "group": domain, "level": 2,
+            "color": DOMAIN_COLORS[domain],
+        })
+        state["knowledge_graph"]["edges"].append(
+            {"from": domain, "to": group_id, "label": "包含"}
+        )
+        existing_ids.add(group_id)
+
+    # Level 3: concept node (keep English name)
+    concept_id = _node_id(concept["name"])
+    if concept_id not in existing_ids:
+        state["knowledge_graph"]["nodes"].append({
+            "id": concept_id, "label": concept["name"],
+            "group": domain, "level": 3,
+            "color": DOMAIN_COLORS[domain],
+        })
+        state["knowledge_graph"]["edges"].append(
+            {"from": group_id, "to": concept_id, "label": "包含"}
+        )
+        existing_ids.add(concept_id)
 
     # Mermaid image
     mermaid_code    = content.get("mermaid_graph", f"graph LR\n  A[{concept['name']}] --> B[{domain}]")
