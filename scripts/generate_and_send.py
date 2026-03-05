@@ -138,48 +138,42 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
     learned_summary = ", ".join(learned[-15:]) if learned else "none yet"
     existing_node_labels = [n["label"] for n in graph["nodes"]]
 
-    system_prompt = f"""你是一个AI学习引擎，负责生成每日结构化AI学习邮件。
-请严格遵循以下模板和规则，所有输出内容必须使用简体中文。
+    system_prompt = f"""你是一个AI学习引擎，负责生成每日深度AI学习邮件。
+所有输出内容必须使用简体中文，内容面向系统学习AI的开发者，要求深入、细致、有实际价值。
 
-模板（内容结构参考）：
-{template_text}
+【严格禁止】已学过的概念：{learned_summary}
+对以上任何概念，禁止重新介绍或铺垫背景，哪怕一句话也不行。
+如需引用，只能用"（参见：XXX）"简短提及，不得展开。
 
-规则：
-{rules_text}
+输出格式：返回一个JSON对象，包含以下键：
 
-输出格式：
-返回一个JSON对象，包含以下键：
-- "concept_name": 字符串（概念的中文名称，可附英文原名，如"AI智能体 (AI Agents)"）
-- "email_subject": 字符串（吸引人的邮件主题，中文，如"第3天：AI智能体如何思考与行动"）
-- "definition": 字符串（简明定义，2-4句话）
-- "key_terms": 字符串（使用 • 符号的要点列表，每个术语加简短解释）
-- "simple_example": 字符串（1-2段类比或故事，帮助理解）
-- "applications": 字符串（真实使用场景的要点列表）
-- "system_flow": 字符串（描述工作流程的编号步骤，不适用则填"N/A"）
-- "component_structure": 字符串（组件结构的要点列表，不适用则填"N/A"）
-- "technical_extensions": 字符串（相关技术的要点列表）
-- "current_status": 字符串（技术现状：广泛应用/新兴技术/实验阶段/逐渐被替代，加简短说明）
-- "alternatives": 字符串（替代方案的要点列表）
-- "real_world_examples": 字符串（真实AI产品/系统示例，每条一行）
-- "references": 字符串（参考资料列表，使用markdown链接格式：[标题](url)）
-- "mermaid_graph": 字符串（有效的Mermaid图代码，展示今日概念及其与相关概念的关系）
-- "new_nodes": 数组，每个元素格式：{{"id": string, "label": string, "group": string, "color": {{"background": string, "border": string}}}}
-- "new_edges": 数组，每个元素格式：{{"from": string, "to": string, "label": string}}
+- "concept_name": 字符串（中文名称+英文原名，如"多智能体系统 (Multi-Agent Systems)"）
+- "email_subject": 字符串（吸引人的中文主题，如"Day 2：多个AI如何协作完成复杂任务？"）
+- "definition": 字符串（深入定义，4-6句话，含技术本质、核心特征、与相关概念的区别）
+- "key_terms": 字符串（6-10个核心术语，每条格式：• 术语名：2-3句详细解释）
+- "simple_example": 字符串（2-3段生动类比或场景故事，具体有画面感）
+- "applications": 字符串（6-8个真实应用场景，每条用 • 开头，含具体产品或公司名）
+- "system_flow": 字符串（详细工作流程，每步2-3句说明；不适用填"N/A"）
+- "system_flow_mermaid": 字符串（system_flow对应的Mermaid flowchart，graph TD风格，节点文字不超过8个中文字，节点id只用英文字母和下划线；不适用填"N/A"）
+- "component_structure": 字符串（各组件详细说明，每条用 • 开头，含功能和组件间关系；不适用填"N/A"）
+- "component_mermaid": 字符串（component_structure对应的Mermaid图，graph LR风格，节点文字不超过8个中文字，节点id只用英文字母和下划线；不适用填"N/A"）
+- "technical_extensions": 字符串（6-8个相关技术/变体，每条用 • 开头，说明与本概念的关联）
+- "current_status": 字符串（2-3句话，含技术现状、主要推动者、近期重要进展）
+- "alternatives": 字符串（3-5个替代或互补方案，每条用 • 开头，说明优劣对比）
+- "real_world_examples": 字符串（5-6个真实产品/系统，格式：• 产品名：1-2句说明）
+- "references": 字符串（5-8条参考资料，格式：• [标题](url)，优先论文和官方文档）
+- "mermaid_graph": 字符串（知识图谱用的Mermaid图，graph LR风格，5-8个节点）
+- "new_nodes": 数组，每个元素：{{"id": string, "label": string, "group": string, "color": {{"background": string, "border": string}}}}
+- "new_edges": 数组，每个元素：{{"from": string, "to": string, "label": string}}
 
-关于 new_nodes 和 new_edges 的规则（非常重要）：
-- node 的 id 必须使用英文下划线格式（snake_case），如 "ai_agents"、"tool_calling"
-- 已有节点的 id 包括：{json.dumps(existing_node_labels)} 中对应的 snake_case 版本
-- 域根节点 id 为："{domain.lower().replace(' ', '_')}"（如 "systems"、"llm_capabilities"）
-- 必须包含一条从域根节点到新概念节点的 edge，例如：{{"from": "{domain.lower().replace(' ', '_')}", "to": "<新节点id>", "label": "包含"}}
-- node 颜色使用：{json.dumps(DOMAIN_COLORS[domain])}
-- node 的 group 使用："{domain}"
+new_nodes/new_edges规则：
+- node id 必须是 snake_case 英文，如 "multi_agent_systems"
+- 域根节点 id："{domain.lower().replace(' ', '_')}"
+- 必须有一条边从域根节点连到新概念：{{"from": "{domain.lower().replace(' ', '_')}", "to": "<新节点id>", "label": "包含"}}
+- 颜色：{json.dumps(DOMAIN_COLORS[domain])}，group："{domain}"
 
-关于 mermaid_graph：
-- 使用 "graph LR" 风格
-- 展示新概念与域根节点及2-3个相关概念的连接
-- 节点数量控制在5-8个
-
-重要：references 中必须使用真实、可访问的URL。"""
+Mermaid图规则：所有节点id只用英文字母和下划线，节点文字用中文但不超过8个字，语法必须正确。
+references必须是真实可访问的URL。"""
 
     user_prompt = f"""请为以下AI概念生成今日学习内容：
 
@@ -187,10 +181,9 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
 所属领域：{domain}
 所属分组：{concept['group']}
 
-已学过的概念（不要重复详细解释，可简要引用）：{learned_summary}
-知识图谱中已有节点：{existing_node_labels}
+知识图谱已有节点：{existing_node_labels}
 
-请生成内容详实、通俗易懂、实用性强的学习材料，适合系统学习AI的开发者阅读。"""
+要求：内容深入细致，每个部分信息量充足，适合认真系统学习。"""
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -200,7 +193,7 @@ def generate_learning_content(concept: dict, domain: str, learned: list, graph: 
         ],
         response_format={"type": "json_object"},
         temperature=0.7,
-        max_tokens=3500,
+        max_tokens=5000,
     )
     return json.loads(response.choices[0].message.content)
 
@@ -238,23 +231,38 @@ def build_html_email(content: dict, domain: str, session_num: int,
     concept_name = content.get("concept_name", "AI Concept")
     today = datetime.now().strftime("%Y-%m-%d")
 
+    def _mermaid_section(title: str, mermaid_code, icon: str) -> str:
+        if not mermaid_code or str(mermaid_code).strip().upper() == "N/A":
+            return ""
+        img_url = mermaid_to_image_url(str(mermaid_code))
+        return (
+            f'\n    <div class="section">'
+            f'\n      <h3>{icon} {title}</h3>'
+            f'\n      <div style="text-align:center;margin-top:10px;">'
+            f'\n        <img src="{img_url}" alt="{title}" style="max-width:100%;border-radius:8px;border:1px solid #e8eaff;" />'
+            f'\n      </div>'
+            f'\n    </div>'
+        )
+
     sections_html = "".join([
-        _section("Concept Definition",   content.get("definition", ""),            "📖"),
-        _section("Key Terminology",       content.get("key_terms", ""),             "🔑"),
-        _section("Simple Example",        content.get("simple_example", ""),        "💡"),
-        _section("Application Scenarios", content.get("applications", ""),          "🚀"),
-        _section("System Flow",           content.get("system_flow", ""),           "⚙️"),
-        _section("Component Structure",   content.get("component_structure", ""),   "🧩"),
-        _section("Technical Extensions",  content.get("technical_extensions", ""),  "🔧"),
-        _section("Current Status",        content.get("current_status", ""),        "📊"),
-        _section("Alternative Approaches",content.get("alternatives", ""),          "🔀"),
-        _section("Real-world Examples",   content.get("real_world_examples", ""),   "🌍"),
-        _section("References",            content.get("references", ""),            "📚"),
+        _section("概念定义",   content.get("definition", ""),              "📖"),
+        _section("核心术语",   content.get("key_terms", ""),               "🔑"),
+        _section("直觉理解",   content.get("simple_example", ""),          "💡"),
+        _section("应用场景",   content.get("applications", ""),            "🚀"),
+        _section("工作流程",   content.get("system_flow", ""),             "⚙️"),
+        _mermaid_section("流程图", content.get("system_flow_mermaid", ""), "📊"),
+        _section("组件结构",   content.get("component_structure", ""),     "🧩"),
+        _mermaid_section("结构图", content.get("component_mermaid", ""),   "🗂️"),
+        _section("技术延伸",   content.get("technical_extensions", ""),    "🔧"),
+        _section("技术现状",   content.get("current_status", ""),          "📈"),
+        _section("替代方案",   content.get("alternatives", ""),            "🔀"),
+        _section("真实案例",   content.get("real_world_examples", ""),     "🌍"),
+        _section("参考资料",   content.get("references", ""),              "📚"),
     ])
 
     graph_link_html = ""
     if graph_url:
-        graph_link_html = f'<p style="margin-top:12px;"><a href="{graph_url}" style="color:#667eea;font-weight:600;">View Full Knowledge Graph →</a></p>'
+        graph_link_html = f'<p style="margin-top:12px;"><a href="{graph_url}" style="color:#667eea;font-weight:600;">查看完整知识图谱 →</a></p>'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -358,7 +366,7 @@ def build_html_email(content: dict, domain: str, session_num: int,
     <div class="body">
       {sections_html}
       <div class="graph-card">
-        <h3>Today's Knowledge Graph Update</h3>
+        <h3>今日知识图谱更新</h3>
         <img src="{mermaid_img_url}" alt="Knowledge Graph for {concept_name}" />
         {graph_link_html}
       </div>
