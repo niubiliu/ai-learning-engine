@@ -1,11 +1,12 @@
 {
-  "session_count": 3,
+  "session_count": 4,
   "current_domain_index": 0,
-  "current_concept_index": 3,
+  "current_concept_index": 4,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
-    "RAG (Retrieval-Augmented Generation)"
+    "RAG (Retrieval-Augmented Generation)",
+    "Workflow Systems"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -13,67 +14,200 @@
         "id": "AI",
         "label": "AI",
         "group": "root",
-        "color": { "background": "#ffffff", "border": "#aaaaaa" }
+        "color": {
+          "background": "#ffffff",
+          "border": "#aaaaaa"
+        }
       },
       {
         "id": "Systems",
         "label": "Systems",
         "group": "Systems",
-        "color": { "background": "#667eea", "border": "#4a5cd4" }
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       },
       {
         "id": "LLM Capabilities",
         "label": "LLM Capabilities",
         "group": "LLM Capabilities",
-        "color": { "background": "#f093fb", "border": "#d070e0" }
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       },
       {
         "id": "Applications",
         "label": "Applications",
         "group": "Applications",
-        "color": { "background": "#4facfe", "border": "#2d8fe0" }
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       },
       {
         "id": "Model Principles",
         "label": "Model Principles",
         "group": "Model Principles",
-        "color": { "background": "#43e97b", "border": "#2cc45a" }
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       },
       {
         "id": "Math Foundations",
         "label": "Math Foundations",
         "group": "Math Foundations",
-        "color": { "background": "#fa8231", "border": "#e06010" }
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       },
       {
         "id": "ai_agents",
         "label": "AI Agents",
         "group": "Systems",
-        "color": { "background": "#667eea", "border": "#4a5cd4" }
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       },
       {
         "id": "multi_agent_systems",
         "label": "Multi-Agent Systems",
         "group": "Systems",
-        "color": { "background": "#667eea", "border": "#4a5cd4" }
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       },
       {
         "id": "retrieval_augmented_generation",
         "label": "RAG",
         "group": "Systems",
-        "color": { "background": "#667eea", "border": "#4a5cd4" }
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "workflow_systems",
+        "label": "工作流系统",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "workflow_management",
+        "label": "工作流管理",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "process_automation",
+        "label": "流程自动化",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "task_assignment",
+        "label": "任务分配",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "performance_metrics",
+        "label": "绩效指标",
+        "group": "Systems",
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
-      { "from": "AI", "to": "Systems",          "label": "includes" },
-      { "from": "AI", "to": "LLM Capabilities", "label": "includes" },
-      { "from": "AI", "to": "Applications",     "label": "includes" },
-      { "from": "AI", "to": "Model Principles", "label": "includes" },
-      { "from": "AI", "to": "Math Foundations", "label": "includes" },
-      { "from": "Systems", "to": "ai_agents",                     "label": "包含" },
-      { "from": "Systems", "to": "multi_agent_systems",           "label": "包含" },
-      { "from": "Systems", "to": "retrieval_augmented_generation","label": "包含" },
-      { "from": "ai_agents", "to": "multi_agent_systems",         "label": "扩展" }
+      {
+        "from": "AI",
+        "to": "Systems",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "LLM Capabilities",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Applications",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Model Principles",
+        "label": "includes"
+      },
+      {
+        "from": "AI",
+        "to": "Math Foundations",
+        "label": "includes"
+      },
+      {
+        "from": "Systems",
+        "to": "ai_agents",
+        "label": "包含"
+      },
+      {
+        "from": "Systems",
+        "to": "multi_agent_systems",
+        "label": "包含"
+      },
+      {
+        "from": "Systems",
+        "to": "retrieval_augmented_generation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_agents",
+        "to": "multi_agent_systems",
+        "label": "扩展"
+      },
+      {
+        "from": "Systems",
+        "to": "workflow_systems",
+        "label": "包含"
+      },
+      {
+        "from": "workflow_systems",
+        "to": "workflow_management",
+        "label": "相关"
+      },
+      {
+        "from": "workflow_systems",
+        "to": "process_automation",
+        "label": "相关"
+      },
+      {
+        "from": "workflow_systems",
+        "to": "task_assignment",
+        "label": "相关"
+      },
+      {
+        "from": "workflow_systems",
+        "to": "performance_metrics",
+        "label": "相关"
+      }
     ]
   }
 }
