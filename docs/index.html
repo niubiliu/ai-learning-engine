@@ -7,19 +7,42 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #0d1117; color: #e6edf3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-    #header { padding: 18px 28px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: space-between; }
+    #header {
+      padding: 18px 28px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
     #header h1 { font-size: 20px; font-weight: 700; }
     #header .meta { font-size: 13px; opacity: 0.85; }
-    #legend { display: flex; gap: 16px; padding: 10px 28px; background: #161b22; border-bottom: 1px solid #30363d; flex-wrap: wrap; }
-    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #8b949e; }
-    .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+    #legend {
+      display: flex;
+      gap: 16px;
+      padding: 10px 28px;
+      background: #161b22;
+      border-bottom: 1px solid #30363d;
+      flex-wrap: wrap;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #8b949e;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
     #graph { width: 100%; height: calc(100vh - 100px); }
   </style>
 </head>
 <body>
   <div id="header">
     <h1>AI Learning Knowledge Graph</h1>
-    <div class="meta">Session #0 &nbsp;|&nbsp; 6 concepts &nbsp;|&nbsp; Initialized</div>
+    <div class="meta">Session #1 &nbsp;|&nbsp; 8 concepts &nbsp;|&nbsp; Updated 2026-03-05</div>
   </div>
   <div id="legend">
     <div class="legend-item"><div class="legend-dot" style="background:#667eea"></div> Systems</div>
@@ -30,35 +53,28 @@
   </div>
   <div id="graph"></div>
   <script>
-    const nodesData = [
-      {"id":"AI",               "label":"AI",               "group":"root",             "level":0,"color":{"background":"#ffffff","border":"#aaaaaa"}},
-      {"id":"Systems",          "label":"Systems",          "group":"Systems",          "level":1,"color":{"background":"#667eea","border":"#4a5cd4"}},
-      {"id":"LLM Capabilities", "label":"LLM Capabilities", "group":"LLM Capabilities","level":1,"color":{"background":"#f093fb","border":"#d070e0"}},
-      {"id":"Applications",     "label":"Applications",     "group":"Applications",    "level":1,"color":{"background":"#4facfe","border":"#2d8fe0"}},
-      {"id":"Model Principles", "label":"Model Principles", "group":"Model Principles","level":1,"color":{"background":"#43e97b","border":"#2cc45a"}},
-      {"id":"Math Foundations", "label":"Math Foundations", "group":"Math Foundations","level":1,"color":{"background":"#fa8231","border":"#e06010"}}
-    ];
-    const edgesData = [
-      {"from":"AI","to":"Systems",          "label":"includes"},
-      {"from":"AI","to":"LLM Capabilities", "label":"includes"},
-      {"from":"AI","to":"Applications",     "label":"includes"},
-      {"from":"AI","to":"Model Principles", "label":"includes"},
-      {"from":"AI","to":"Math Foundations", "label":"includes"}
-    ];
-
-    const SIZE_MAP = {0:36, 1:26, 2:20, 3:14};
-    const FONT_MAP  = {0:16, 1:13, 2:12, 3:11};
-    nodesData.forEach(n => {
-      const lv = (n.level !== undefined) ? n.level : 3;
-      n.size = SIZE_MAP[lv] || 14;
-      n.font = { size: FONT_MAP[lv] || 11, color: "#e6edf3" };
-    });
+    const nodesData = [{"id": "AI", "label": "AI", "group": "root", "level": 0, "color": {"background": "#ffffff", "border": "#aaaaaa"}}, {"id": "Systems", "label": "Systems", "group": "Systems", "level": 1, "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "LLM Capabilities", "label": "LLM Capabilities", "group": "LLM Capabilities", "level": 1, "color": {"background": "#f093fb", "border": "#d070e0"}}, {"id": "Applications", "label": "Applications", "group": "Applications", "level": 1, "color": {"background": "#4facfe", "border": "#2d8fe0"}}, {"id": "Model Principles", "label": "Model Principles", "group": "Model Principles", "level": 1, "color": {"background": "#43e97b", "border": "#2cc45a"}}, {"id": "Math Foundations", "label": "Math Foundations", "group": "Math Foundations", "level": 1, "color": {"background": "#fa8231", "border": "#e06010"}}, {"id": "core_system_architectures", "label": "Core System Architectures", "group": "Systems", "level": 2, "color": {"background": "#667eea", "border": "#4a5cd4"}}, {"id": "ai_agents", "label": "AI Agents", "group": "Systems", "level": 3, "color": {"background": "#667eea", "border": "#4a5cd4"}}];
+    const edgesData = [{"from": "AI", "to": "Systems", "label": "includes"}, {"from": "AI", "to": "LLM Capabilities", "label": "includes"}, {"from": "AI", "to": "Applications", "label": "includes"}, {"from": "AI", "to": "Model Principles", "label": "includes"}, {"from": "AI", "to": "Math Foundations", "label": "includes"}, {"from": "Systems", "to": "core_system_architectures", "label": "包含"}, {"from": "core_system_architectures", "to": "ai_agents", "label": "包含"}];
 
     const nodes = new vis.DataSet(nodesData);
     const edges = new vis.DataSet(edgesData);
 
+    // Use node.level set by Python (0=AI, 1=domain, 2=group, 3=concept)
+    const SIZE_MAP = { 0: 36, 1: 26, 2: 20, 3: 14 };
+    const FONT_MAP  = { 0: 16, 1: 13, 2: 12, 3: 11 };
+    nodesData.forEach(n => {
+      const lv = (n.level !== undefined) ? n.level : 3;
+      n.level = lv;
+      n.size  = SIZE_MAP[lv] || 14;
+      n.font  = { size: FONT_MAP[lv] || 11, color: "#e6edf3" };
+    });
+
     const options = {
-      nodes: { shape: "dot", borderWidth: 2, shadow: true },
+      nodes: {
+        shape: "dot",
+        borderWidth: 2,
+        shadow: true,
+      },
       edges: {
         color: { color: "#484f58", opacity: 0.9, highlight: "#667eea" },
         font: { size: 10, color: "#8b949e", align: "middle" },
@@ -69,12 +85,25 @@
       physics: { enabled: false },
       layout: {
         hierarchical: {
-          enabled: true, direction: "UD", sortMethod: "directed",
-          levelSeparation: 120, nodeSpacing: 160, treeSpacing: 200,
-          blockShifting: true, edgeMinimization: true, parentCentralization: true,
+          enabled: true,
+          direction: "UD",
+          sortMethod: "directed",
+          levelSeparation: 120,
+          nodeSpacing: 160,
+          treeSpacing: 200,
+          blockShifting: true,
+          edgeMinimization: true,
+          parentCentralization: true,
         },
       },
-      interaction: { hover: true, tooltipDelay: 150, navigationButtons: true, keyboard: true, zoomView: true, dragView: true },
+      interaction: {
+        hover: true,
+        tooltipDelay: 150,
+        navigationButtons: true,
+        keyboard: true,
+        zoomView: true,
+        dragView: true,
+      },
     };
 
     new vis.Network(document.getElementById("graph"), { nodes, edges }, options);
