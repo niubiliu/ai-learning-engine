@@ -1,9 +1,10 @@
 {
-  "session_count": 1,
+  "session_count": 2,
   "current_domain_index": 0,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
-    "AI Agents"
+    "AI Agents",
+    "Multi-Agent Systems"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -86,6 +87,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "multi_agent_systems",
+        "label": "Multi-Agent Systems",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -122,6 +133,11 @@
       {
         "from": "core_system_architectures",
         "to": "ai_agents",
+        "label": "包含"
+      },
+      {
+        "from": "core_system_architectures",
+        "to": "multi_agent_systems",
         "label": "包含"
       }
     ]
