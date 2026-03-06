@@ -389,7 +389,7 @@ def send_email(subject: str, html_body: str):
     msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"]    = GMAIL_ADDRESS
-    msg["To"]      = ", ".join(RECIPIENT_EMAILS)
+    msg["To"]      = GMAIL_ADDRESS
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
