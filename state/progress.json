@@ -1,11 +1,12 @@
 {
-  "session_count": 3,
+  "session_count": 4,
   "current_domain_index": 0,
-  "current_concept_index": 3,
+  "current_concept_index": 4,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
-    "RAG (Retrieval-Augmented Generation)"
+    "RAG (Retrieval-Augmented Generation)",
+    "Workflow Systems"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -108,6 +109,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "workflow_systems",
+        "label": "Workflow Systems",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -154,6 +165,11 @@
       {
         "from": "core_system_architectures",
         "to": "rag",
+        "label": "包含"
+      },
+      {
+        "from": "core_system_architectures",
+        "to": "workflow_systems",
         "label": "包含"
       }
     ]
