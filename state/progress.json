@@ -1,13 +1,14 @@
 {
-  "session_count": 5,
+  "session_count": 6,
   "current_domain_index": 0,
-  "current_concept_index": 5,
+  "current_concept_index": 6,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
     "RAG (Retrieval-Augmented Generation)",
     "Workflow Systems",
-    "Tool Calling"
+    "Tool Calling",
+    "Planning"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -140,6 +141,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "planning",
+        "label": "Planning",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -201,6 +212,11 @@
       {
         "from": "agent_components",
         "to": "tool_calling",
+        "label": "包含"
+      },
+      {
+        "from": "agent_components",
+        "to": "planning",
         "label": "包含"
       }
     ]
