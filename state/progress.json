@@ -1,14 +1,15 @@
 {
-  "session_count": 6,
+  "session_count": 7,
   "current_domain_index": 0,
-  "current_concept_index": 6,
+  "current_concept_index": 7,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
     "RAG (Retrieval-Augmented Generation)",
     "Workflow Systems",
     "Tool Calling",
-    "Planning"
+    "Planning",
+    "Memory"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -151,6 +152,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "memory",
+        "label": "Memory",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -217,6 +228,11 @@
       {
         "from": "agent_components",
         "to": "planning",
+        "label": "包含"
+      },
+      {
+        "from": "agent_components",
+        "to": "memory",
         "label": "包含"
       }
     ]
