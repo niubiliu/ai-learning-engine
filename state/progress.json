@@ -1,7 +1,7 @@
 {
-  "session_count": 7,
+  "session_count": 8,
   "current_domain_index": 0,
-  "current_concept_index": 7,
+  "current_concept_index": 8,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -9,7 +9,8 @@
     "Workflow Systems",
     "Tool Calling",
     "Planning",
-    "Memory"
+    "Memory",
+    "Reflection"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -162,6 +163,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "reflection",
+        "label": "Reflection",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -233,6 +244,11 @@
       {
         "from": "agent_components",
         "to": "memory",
+        "label": "包含"
+      },
+      {
+        "from": "agent_components",
+        "to": "reflection",
         "label": "包含"
       }
     ]
