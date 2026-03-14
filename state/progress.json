@@ -1,7 +1,7 @@
 {
-  "session_count": 8,
+  "session_count": 9,
   "current_domain_index": 0,
-  "current_concept_index": 8,
+  "current_concept_index": 9,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -10,7 +10,8 @@
     "Tool Calling",
     "Planning",
     "Memory",
-    "Reflection"
+    "Reflection",
+    "Embedding-based Retrieval"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -173,6 +174,26 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "retrieval_systems",
+        "label": "Retrieval Systems",
+        "group": "Systems",
+        "level": 2,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "embedding_based_retrieval",
+        "label": "Embedding-based Retrieval",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -249,6 +270,16 @@
       {
         "from": "agent_components",
         "to": "reflection",
+        "label": "包含"
+      },
+      {
+        "from": "Systems",
+        "to": "retrieval_systems",
+        "label": "包含"
+      },
+      {
+        "from": "retrieval_systems",
+        "to": "embedding_based_retrieval",
         "label": "包含"
       }
     ]
