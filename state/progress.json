@@ -1,7 +1,7 @@
 {
-  "session_count": 9,
+  "session_count": 10,
   "current_domain_index": 0,
-  "current_concept_index": 9,
+  "current_concept_index": 10,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -11,7 +11,8 @@
     "Planning",
     "Memory",
     "Reflection",
-    "Embedding-based Retrieval"
+    "Embedding-based Retrieval",
+    "Vector Databases"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -194,6 +195,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "vector_databases",
+        "label": "Vector Databases",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -280,6 +291,11 @@
       {
         "from": "retrieval_systems",
         "to": "embedding_based_retrieval",
+        "label": "包含"
+      },
+      {
+        "from": "retrieval_systems",
+        "to": "vector_databases",
         "label": "包含"
       }
     ]
