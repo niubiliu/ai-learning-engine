@@ -1,7 +1,7 @@
 {
-  "session_count": 12,
+  "session_count": 13,
   "current_domain_index": 0,
-  "current_concept_index": 12,
+  "current_concept_index": 13,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -14,7 +14,8 @@
     "Embedding-based Retrieval",
     "Vector Databases",
     "Re-ranking",
-    "Query Expansion"
+    "Query Expansion",
+    "HyDE"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -227,6 +228,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "hyde",
+        "label": "HyDE",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -328,6 +339,11 @@
       {
         "from": "retrieval_systems",
         "to": "query_expansion",
+        "label": "包含"
+      },
+      {
+        "from": "retrieval_systems",
+        "to": "hyde",
         "label": "包含"
       }
     ]
