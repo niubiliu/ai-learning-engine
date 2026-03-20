@@ -1,7 +1,7 @@
 {
-  "session_count": 14,
+  "session_count": 15,
   "current_domain_index": 0,
-  "current_concept_index": 14,
+  "current_concept_index": 15,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -16,7 +16,8 @@
     "Re-ranking",
     "Query Expansion",
     "HyDE",
-    "Agent Frameworks"
+    "Agent Frameworks",
+    "Workflow Orchestration"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -259,6 +260,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "workflow_orchestration",
+        "label": "Workflow Orchestration",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -375,6 +386,11 @@
       {
         "from": "system_orchestration",
         "to": "agent_frameworks",
+        "label": "包含"
+      },
+      {
+        "from": "system_orchestration",
+        "to": "workflow_orchestration",
         "label": "包含"
       }
     ]
