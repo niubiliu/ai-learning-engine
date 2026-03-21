@@ -1,7 +1,7 @@
 {
-  "session_count": 15,
+  "session_count": 16,
   "current_domain_index": 0,
-  "current_concept_index": 15,
+  "current_concept_index": 16,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -17,7 +17,8 @@
     "Query Expansion",
     "HyDE",
     "Agent Frameworks",
-    "Workflow Orchestration"
+    "Workflow Orchestration",
+    "Task Decomposition"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -270,6 +271,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "task_decomposition",
+        "label": "Task Decomposition",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -391,6 +402,11 @@
       {
         "from": "system_orchestration",
         "to": "workflow_orchestration",
+        "label": "包含"
+      },
+      {
+        "from": "system_orchestration",
+        "to": "task_decomposition",
         "label": "包含"
       }
     ]
