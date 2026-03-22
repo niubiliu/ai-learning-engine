@@ -1,7 +1,7 @@
 {
-  "session_count": 16,
+  "session_count": 17,
   "current_domain_index": 0,
-  "current_concept_index": 16,
+  "current_concept_index": 17,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -18,7 +18,8 @@
     "HyDE",
     "Agent Frameworks",
     "Workflow Orchestration",
-    "Task Decomposition"
+    "Task Decomposition",
+    "Evaluation Pipelines"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -281,6 +282,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "evaluation_pipelines",
+        "label": "Evaluation Pipelines",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -407,6 +418,11 @@
       {
         "from": "system_orchestration",
         "to": "task_decomposition",
+        "label": "包含"
+      },
+      {
+        "from": "system_orchestration",
+        "to": "evaluation_pipelines",
         "label": "包含"
       }
     ]
