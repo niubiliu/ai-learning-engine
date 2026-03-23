@@ -1,7 +1,7 @@
 {
-  "session_count": 17,
+  "session_count": 18,
   "current_domain_index": 0,
-  "current_concept_index": 17,
+  "current_concept_index": 18,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -19,7 +19,8 @@
     "Agent Frameworks",
     "Workflow Orchestration",
     "Task Decomposition",
-    "Evaluation Pipelines"
+    "Evaluation Pipelines",
+    "Model APIs"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -292,6 +293,26 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "infrastructure_and_integration",
+        "label": "Infrastructure and Integration",
+        "group": "Systems",
+        "level": 2,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
+      },
+      {
+        "id": "model_apis",
+        "label": "Model APIs",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -423,6 +444,16 @@
       {
         "from": "system_orchestration",
         "to": "evaluation_pipelines",
+        "label": "包含"
+      },
+      {
+        "from": "Systems",
+        "to": "infrastructure_and_integration",
+        "label": "包含"
+      },
+      {
+        "from": "infrastructure_and_integration",
+        "to": "model_apis",
         "label": "包含"
       }
     ]
