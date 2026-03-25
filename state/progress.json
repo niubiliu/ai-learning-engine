@@ -1,7 +1,7 @@
 {
-  "session_count": 19,
+  "session_count": 20,
   "current_domain_index": 0,
-  "current_concept_index": 19,
+  "current_concept_index": 20,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -21,7 +21,8 @@
     "Task Decomposition",
     "Evaluation Pipelines",
     "Model APIs",
-    "Model Context Protocol (MCP)"
+    "Model Context Protocol (MCP)",
+    "External Tools"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -324,6 +325,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "external_tools",
+        "label": "External Tools",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -470,6 +481,11 @@
       {
         "from": "infrastructure_and_integration",
         "to": "model_context_protocol",
+        "label": "包含"
+      },
+      {
+        "from": "infrastructure_and_integration",
+        "to": "external_tools",
         "label": "包含"
       }
     ]
