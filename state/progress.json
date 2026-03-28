@@ -1,7 +1,7 @@
 {
-  "session_count": 22,
+  "session_count": 23,
   "current_domain_index": 0,
-  "current_concept_index": 22,
+  "current_concept_index": 23,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -24,7 +24,8 @@
     "Model Context Protocol (MCP)",
     "External Tools",
     "Data Sources",
-    "Context Engineering"
+    "Context Engineering",
+    "State Management"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -367,6 +368,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "state_management",
+        "label": "State Management",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -533,6 +544,11 @@
       {
         "from": "system_operations",
         "to": "context_engineering",
+        "label": "包含"
+      },
+      {
+        "from": "system_operations",
+        "to": "state_management",
         "label": "包含"
       }
     ]
