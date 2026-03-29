@@ -1,7 +1,7 @@
 {
-  "session_count": 23,
+  "session_count": 24,
   "current_domain_index": 0,
-  "current_concept_index": 23,
+  "current_concept_index": 24,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -25,7 +25,8 @@
     "External Tools",
     "Data Sources",
     "Context Engineering",
-    "State Management"
+    "State Management",
+    "Caching"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -378,6 +379,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "caching",
+        "label": "Caching",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -549,6 +560,11 @@
       {
         "from": "system_operations",
         "to": "state_management",
+        "label": "包含"
+      },
+      {
+        "from": "system_operations",
+        "to": "caching",
         "label": "包含"
       }
     ]
