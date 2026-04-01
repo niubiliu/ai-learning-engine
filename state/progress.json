@@ -1,7 +1,7 @@
 {
-  "session_count": 26,
+  "session_count": 27,
   "current_domain_index": 0,
-  "current_concept_index": 26,
+  "current_concept_index": 27,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -28,7 +28,8 @@
     "State Management",
     "Caching",
     "Streaming",
-    "Guardrails"
+    "Guardrails",
+    "Observability"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -411,6 +412,16 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "observability",
+        "label": "Observability",
+        "group": "Systems",
+        "level": 3,
+        "color": {
+          "background": "#667eea",
+          "border": "#4a5cd4"
+        }
       }
     ],
     "edges": [
@@ -597,6 +608,11 @@
       {
         "from": "system_operations",
         "to": "guardrails",
+        "label": "包含"
+      },
+      {
+        "from": "system_operations",
+        "to": "observability",
         "label": "包含"
       }
     ]
