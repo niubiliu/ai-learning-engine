@@ -1,7 +1,7 @@
 {
-  "session_count": 27,
-  "current_domain_index": 0,
-  "current_concept_index": 27,
+  "session_count": 28,
+  "current_domain_index": 1,
+  "current_concept_index": 1,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -29,7 +29,8 @@
     "Caching",
     "Streaming",
     "Guardrails",
-    "Observability"
+    "Observability",
+    "Tokenization"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -422,6 +423,26 @@
           "background": "#667eea",
           "border": "#4a5cd4"
         }
+      },
+      {
+        "id": "text_processing",
+        "label": "Text Processing",
+        "group": "LLM Capabilities",
+        "level": 2,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
+      },
+      {
+        "id": "tokenization",
+        "label": "Tokenization",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -613,6 +634,16 @@
       {
         "from": "system_operations",
         "to": "observability",
+        "label": "包含"
+      },
+      {
+        "from": "LLM Capabilities",
+        "to": "text_processing",
+        "label": "包含"
+      },
+      {
+        "from": "text_processing",
+        "to": "tokenization",
         "label": "包含"
       }
     ]
