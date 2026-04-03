@@ -1,7 +1,7 @@
 {
-  "session_count": 28,
+  "session_count": 29,
   "current_domain_index": 1,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -30,7 +30,8 @@
     "Streaming",
     "Guardrails",
     "Observability",
-    "Tokenization"
+    "Tokenization",
+    "Context Window"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -443,6 +444,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "context_window",
+        "label": "Context Window",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -644,6 +655,11 @@
       {
         "from": "text_processing",
         "to": "tokenization",
+        "label": "包含"
+      },
+      {
+        "from": "text_processing",
+        "to": "context_window",
         "label": "包含"
       }
     ]
