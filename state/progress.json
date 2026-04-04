@@ -1,7 +1,7 @@
 {
-  "session_count": 29,
+  "session_count": 30,
   "current_domain_index": 1,
-  "current_concept_index": 2,
+  "current_concept_index": 3,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -31,7 +31,8 @@
     "Guardrails",
     "Observability",
     "Tokenization",
-    "Context Window"
+    "Context Window",
+    "Text Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -454,6 +455,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "text_generation",
+        "label": "Text Generation",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -660,6 +671,11 @@
       {
         "from": "text_processing",
         "to": "context_window",
+        "label": "包含"
+      },
+      {
+        "from": "text_processing",
+        "to": "text_generation",
         "label": "包含"
       }
     ]
