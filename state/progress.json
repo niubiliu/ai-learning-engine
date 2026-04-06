@@ -1,7 +1,7 @@
 {
-  "session_count": 31,
+  "session_count": 32,
   "current_domain_index": 1,
-  "current_concept_index": 4,
+  "current_concept_index": 5,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -33,7 +33,8 @@
     "Tokenization",
     "Context Window",
     "Text Generation",
-    "Prompt Engineering"
+    "Prompt Engineering",
+    "System Prompt"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -486,6 +487,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "system_prompt",
+        "label": "System Prompt",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -707,6 +718,11 @@
       {
         "from": "prompting",
         "to": "prompt_engineering",
+        "label": "包含"
+      },
+      {
+        "from": "prompting",
+        "to": "system_prompt",
         "label": "包含"
       }
     ]
