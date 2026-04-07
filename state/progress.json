@@ -1,7 +1,7 @@
 {
-  "session_count": 32,
+  "session_count": 33,
   "current_domain_index": 1,
-  "current_concept_index": 5,
+  "current_concept_index": 6,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -34,7 +34,8 @@
     "Context Window",
     "Text Generation",
     "Prompt Engineering",
-    "System Prompt"
+    "System Prompt",
+    "Few-shot Prompting"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -497,6 +498,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "few_shot_prompting",
+        "label": "Few-shot Prompting",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -723,6 +734,11 @@
       {
         "from": "prompting",
         "to": "system_prompt",
+        "label": "包含"
+      },
+      {
+        "from": "prompting",
+        "to": "few_shot_prompting",
         "label": "包含"
       }
     ]
