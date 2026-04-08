@@ -1,7 +1,7 @@
 {
-  "session_count": 33,
+  "session_count": 34,
   "current_domain_index": 1,
-  "current_concept_index": 6,
+  "current_concept_index": 7,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -35,7 +35,8 @@
     "Text Generation",
     "Prompt Engineering",
     "System Prompt",
-    "Few-shot Prompting"
+    "Few-shot Prompting",
+    "Chain-of-Thought Prompting"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -508,6 +509,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "chain_of_thought_prompting",
+        "label": "Chain-of-Thought Prompting",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -739,6 +750,11 @@
       {
         "from": "prompting",
         "to": "few_shot_prompting",
+        "label": "包含"
+      },
+      {
+        "from": "prompting",
+        "to": "chain_of_thought_prompting",
         "label": "包含"
       }
     ]
