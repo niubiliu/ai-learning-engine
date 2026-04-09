@@ -1,7 +1,7 @@
 {
-  "session_count": 34,
+  "session_count": 35,
   "current_domain_index": 1,
-  "current_concept_index": 7,
+  "current_concept_index": 8,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -36,7 +36,8 @@
     "Prompt Engineering",
     "System Prompt",
     "Few-shot Prompting",
-    "Chain-of-Thought Prompting"
+    "Chain-of-Thought Prompting",
+    "Embeddings"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -519,6 +520,26 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "representation",
+        "label": "Representation",
+        "group": "LLM Capabilities",
+        "level": 2,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
+      },
+      {
+        "id": "embeddings",
+        "label": "Embeddings",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -755,6 +776,16 @@
       {
         "from": "prompting",
         "to": "chain_of_thought_prompting",
+        "label": "包含"
+      },
+      {
+        "from": "LLM Capabilities",
+        "to": "representation",
+        "label": "包含"
+      },
+      {
+        "from": "representation",
+        "to": "embeddings",
         "label": "包含"
       }
     ]
