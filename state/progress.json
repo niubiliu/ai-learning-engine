@@ -1,7 +1,7 @@
 {
-  "session_count": 35,
+  "session_count": 36,
   "current_domain_index": 1,
-  "current_concept_index": 8,
+  "current_concept_index": 9,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -37,7 +37,8 @@
     "System Prompt",
     "Few-shot Prompting",
     "Chain-of-Thought Prompting",
-    "Embeddings"
+    "Embeddings",
+    "Similarity Search"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -540,6 +541,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "similarity_search",
+        "label": "Similarity Search",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -786,6 +797,11 @@
       {
         "from": "representation",
         "to": "embeddings",
+        "label": "包含"
+      },
+      {
+        "from": "representation",
+        "to": "similarity_search",
         "label": "包含"
       }
     ]
