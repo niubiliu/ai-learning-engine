@@ -1,7 +1,7 @@
 {
-  "session_count": 37,
+  "session_count": 38,
   "current_domain_index": 1,
-  "current_concept_index": 10,
+  "current_concept_index": 11,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -39,7 +39,8 @@
     "Chain-of-Thought Prompting",
     "Embeddings",
     "Similarity Search",
-    "Semantic Search"
+    "Semantic Search",
+    "Sampling"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -562,6 +563,26 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "generation_control",
+        "label": "Generation Control",
+        "group": "LLM Capabilities",
+        "level": 2,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
+      },
+      {
+        "id": "sampling",
+        "label": "Sampling",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -818,6 +839,16 @@
       {
         "from": "representation",
         "to": "semantic_search",
+        "label": "包含"
+      },
+      {
+        "from": "LLM Capabilities",
+        "to": "generation_control",
+        "label": "包含"
+      },
+      {
+        "from": "generation_control",
+        "to": "sampling",
         "label": "包含"
       }
     ]
