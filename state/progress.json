@@ -1,7 +1,7 @@
 {
-  "session_count": 38,
+  "session_count": 39,
   "current_domain_index": 1,
-  "current_concept_index": 11,
+  "current_concept_index": 12,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -40,7 +40,8 @@
     "Embeddings",
     "Similarity Search",
     "Semantic Search",
-    "Sampling"
+    "Sampling",
+    "Temperature"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -583,6 +584,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "temperature",
+        "label": "Temperature",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -849,6 +860,11 @@
       {
         "from": "generation_control",
         "to": "sampling",
+        "label": "包含"
+      },
+      {
+        "from": "generation_control",
+        "to": "temperature",
         "label": "包含"
       }
     ]
