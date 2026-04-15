@@ -1,7 +1,7 @@
 {
-  "session_count": 40,
+  "session_count": 41,
   "current_domain_index": 1,
-  "current_concept_index": 13,
+  "current_concept_index": 14,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -42,7 +42,8 @@
     "Semantic Search",
     "Sampling",
     "Temperature",
-    "Top-k Sampling"
+    "Top-k Sampling",
+    "Top-p Sampling"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -605,6 +606,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "top_p_sampling",
+        "label": "Top-p Sampling",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -881,6 +892,11 @@
       {
         "from": "generation_control",
         "to": "top_k_sampling",
+        "label": "包含"
+      },
+      {
+        "from": "generation_control",
+        "to": "top_p_sampling",
         "label": "包含"
       }
     ]
