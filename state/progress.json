@@ -1,7 +1,7 @@
 {
-  "session_count": 42,
+  "session_count": 43,
   "current_domain_index": 1,
-  "current_concept_index": 15,
+  "current_concept_index": 16,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -44,7 +44,8 @@
     "Temperature",
     "Top-k Sampling",
     "Top-p Sampling",
-    "Fine-tuning"
+    "Fine-tuning",
+    "Instruction Tuning"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -637,6 +638,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "instruction_tuning",
+        "label": "Instruction Tuning",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -928,6 +939,11 @@
       {
         "from": "model_adaptation",
         "to": "fine_tuning",
+        "label": "包含"
+      },
+      {
+        "from": "model_adaptation",
+        "to": "instruction_tuning",
         "label": "包含"
       }
     ]
