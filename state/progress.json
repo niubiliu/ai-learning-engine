@@ -1,7 +1,7 @@
 {
-  "session_count": 43,
+  "session_count": 44,
   "current_domain_index": 1,
-  "current_concept_index": 16,
+  "current_concept_index": 17,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -45,7 +45,8 @@
     "Top-k Sampling",
     "Top-p Sampling",
     "Fine-tuning",
-    "Instruction Tuning"
+    "Instruction Tuning",
+    "Reinforcement Learning from Human Feedback (RLHF)"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -648,6 +649,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "reinforcement_learning_from_human_feedback",
+        "label": "Reinforcement Learning from Human Feedback (RLHF)",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -944,6 +955,11 @@
       {
         "from": "model_adaptation",
         "to": "instruction_tuning",
+        "label": "包含"
+      },
+      {
+        "from": "model_adaptation",
+        "to": "reinforcement_learning_from_human_feedback",
         "label": "包含"
       }
     ]
