@@ -1,7 +1,7 @@
 {
-  "session_count": 44,
+  "session_count": 45,
   "current_domain_index": 1,
-  "current_concept_index": 17,
+  "current_concept_index": 18,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -46,7 +46,8 @@
     "Top-p Sampling",
     "Fine-tuning",
     "Instruction Tuning",
-    "Reinforcement Learning from Human Feedback (RLHF)"
+    "Reinforcement Learning from Human Feedback (RLHF)",
+    "Hallucination"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -659,6 +660,26 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "model_limitations",
+        "label": "Model Limitations",
+        "group": "LLM Capabilities",
+        "level": 2,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
+      },
+      {
+        "id": "hallucination",
+        "label": "Hallucination",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -960,6 +981,16 @@
       {
         "from": "model_adaptation",
         "to": "reinforcement_learning_from_human_feedback",
+        "label": "包含"
+      },
+      {
+        "from": "LLM Capabilities",
+        "to": "model_limitations",
+        "label": "包含"
+      },
+      {
+        "from": "model_limitations",
+        "to": "hallucination",
         "label": "包含"
       }
     ]
