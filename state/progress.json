@@ -1,7 +1,7 @@
 {
-  "session_count": 45,
+  "session_count": 46,
   "current_domain_index": 1,
-  "current_concept_index": 18,
+  "current_concept_index": 19,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -47,7 +47,8 @@
     "Fine-tuning",
     "Instruction Tuning",
     "Reinforcement Learning from Human Feedback (RLHF)",
-    "Hallucination"
+    "Hallucination",
+    "Context Loss"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -680,6 +681,16 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "context_loss",
+        "label": "Context Loss",
+        "group": "LLM Capabilities",
+        "level": 3,
+        "color": {
+          "background": "#f093fb",
+          "border": "#d070e0"
+        }
       }
     ],
     "edges": [
@@ -991,6 +1002,11 @@
       {
         "from": "model_limitations",
         "to": "hallucination",
+        "label": "包含"
+      },
+      {
+        "from": "model_limitations",
+        "to": "context_loss",
         "label": "包含"
       }
     ]
