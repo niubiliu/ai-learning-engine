@@ -1,7 +1,7 @@
 {
-  "session_count": 47,
-  "current_domain_index": 1,
-  "current_concept_index": 20,
+  "session_count": 48,
+  "current_domain_index": 2,
+  "current_concept_index": 1,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -49,7 +49,8 @@
     "Reinforcement Learning from Human Feedback (RLHF)",
     "Hallucination",
     "Context Loss",
-    "Bias"
+    "Bias",
+    "Chat Assistants"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -702,6 +703,26 @@
           "background": "#f093fb",
           "border": "#d070e0"
         }
+      },
+      {
+        "id": "ai_assistants",
+        "label": "AI Assistants",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
+      },
+      {
+        "id": "chat_assistants",
+        "label": "Chat Assistants",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1023,6 +1044,16 @@
       {
         "from": "model_limitations",
         "to": "bias",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_assistants",
+        "label": "包含"
+      },
+      {
+        "from": "ai_assistants",
+        "to": "chat_assistants",
         "label": "包含"
       }
     ]
