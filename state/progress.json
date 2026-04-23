@@ -1,7 +1,7 @@
 {
-  "session_count": 48,
+  "session_count": 49,
   "current_domain_index": 2,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -50,7 +50,8 @@
     "Hallucination",
     "Context Loss",
     "Bias",
-    "Chat Assistants"
+    "Chat Assistants",
+    "Personal Assistants"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -723,6 +724,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "personal_assistants",
+        "label": "Personal Assistants",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1054,6 +1065,11 @@
       {
         "from": "ai_assistants",
         "to": "chat_assistants",
+        "label": "包含"
+      },
+      {
+        "from": "ai_assistants",
+        "to": "personal_assistants",
         "label": "包含"
       }
     ]
