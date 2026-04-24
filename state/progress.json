@@ -1,7 +1,7 @@
 {
-  "session_count": 49,
+  "session_count": 50,
   "current_domain_index": 2,
-  "current_concept_index": 2,
+  "current_concept_index": 3,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -51,7 +51,8 @@
     "Context Loss",
     "Bias",
     "Chat Assistants",
-    "Personal Assistants"
+    "Personal Assistants",
+    "Enterprise Assistants"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -734,6 +735,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "enterprise_assistants",
+        "label": "Enterprise Assistants",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1070,6 +1081,11 @@
       {
         "from": "ai_assistants",
         "to": "personal_assistants",
+        "label": "包含"
+      },
+      {
+        "from": "ai_assistants",
+        "to": "enterprise_assistants",
         "label": "包含"
       }
     ]
