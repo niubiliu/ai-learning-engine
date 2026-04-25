@@ -1,7 +1,7 @@
 {
-  "session_count": 50,
+  "session_count": 51,
   "current_domain_index": 2,
-  "current_concept_index": 3,
+  "current_concept_index": 4,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -52,7 +52,8 @@
     "Bias",
     "Chat Assistants",
     "Personal Assistants",
-    "Enterprise Assistants"
+    "Enterprise Assistants",
+    "Code Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -745,6 +746,26 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "ai_coding",
+        "label": "AI Coding",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
+      },
+      {
+        "id": "code_generation",
+        "label": "Code Generation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1086,6 +1107,16 @@
       {
         "from": "ai_assistants",
         "to": "enterprise_assistants",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_coding",
+        "label": "包含"
+      },
+      {
+        "from": "ai_coding",
+        "to": "code_generation",
         "label": "包含"
       }
     ]
