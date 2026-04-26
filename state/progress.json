@@ -1,7 +1,7 @@
 {
-  "session_count": 51,
+  "session_count": 52,
   "current_domain_index": 2,
-  "current_concept_index": 4,
+  "current_concept_index": 5,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -53,7 +53,8 @@
     "Chat Assistants",
     "Personal Assistants",
     "Enterprise Assistants",
-    "Code Generation"
+    "Code Generation",
+    "Code Completion"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -766,6 +767,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "code_completion",
+        "label": "Code Completion",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1117,6 +1128,11 @@
       {
         "from": "ai_coding",
         "to": "code_generation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_coding",
+        "to": "code_completion",
         "label": "包含"
       }
     ]
