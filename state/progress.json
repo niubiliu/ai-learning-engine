@@ -1,7 +1,7 @@
 {
-  "session_count": 53,
+  "session_count": 54,
   "current_domain_index": 2,
-  "current_concept_index": 6,
+  "current_concept_index": 7,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -55,7 +55,8 @@
     "Enterprise Assistants",
     "Code Generation",
     "Code Completion",
-    "Code Refactoring"
+    "Code Refactoring",
+    "Code Review"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -788,6 +789,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "code_review",
+        "label": "Code Review",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1149,6 +1160,11 @@
       {
         "from": "ai_coding",
         "to": "code_refactoring",
+        "label": "包含"
+      },
+      {
+        "from": "ai_coding",
+        "to": "code_review",
         "label": "包含"
       }
     ]
