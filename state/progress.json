@@ -1,7 +1,7 @@
 {
-  "session_count": 54,
+  "session_count": 55,
   "current_domain_index": 2,
-  "current_concept_index": 7,
+  "current_concept_index": 8,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -56,7 +56,8 @@
     "Code Generation",
     "Code Completion",
     "Code Refactoring",
-    "Code Review"
+    "Code Review",
+    "Semantic Search"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -799,6 +800,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "ai_search",
+        "label": "AI Search",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1165,6 +1176,11 @@
       {
         "from": "ai_coding",
         "to": "code_review",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_search",
         "label": "包含"
       }
     ]
