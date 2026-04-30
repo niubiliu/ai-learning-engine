@@ -1,7 +1,7 @@
 {
-  "session_count": 55,
+  "session_count": 56,
   "current_domain_index": 2,
-  "current_concept_index": 8,
+  "current_concept_index": 9,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -57,7 +57,8 @@
     "Code Completion",
     "Code Refactoring",
     "Code Review",
-    "Semantic Search"
+    "Semantic Search",
+    "Conversational Search"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -810,6 +811,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "conversational_search",
+        "label": "Conversational Search",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1181,6 +1192,11 @@
       {
         "from": "Applications",
         "to": "ai_search",
+        "label": "包含"
+      },
+      {
+        "from": "ai_search",
+        "to": "conversational_search",
         "label": "包含"
       }
     ]
