@@ -1,7 +1,7 @@
 {
-  "session_count": 56,
+  "session_count": 57,
   "current_domain_index": 2,
-  "current_concept_index": 9,
+  "current_concept_index": 10,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -58,7 +58,8 @@
     "Code Refactoring",
     "Code Review",
     "Semantic Search",
-    "Conversational Search"
+    "Conversational Search",
+    "Retrieval-based QA"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -821,6 +822,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "retrieval_based_qa",
+        "label": "Retrieval-based QA",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1197,6 +1208,11 @@
       {
         "from": "ai_search",
         "to": "conversational_search",
+        "label": "包含"
+      },
+      {
+        "from": "ai_search",
+        "to": "retrieval_based_qa",
         "label": "包含"
       }
     ]
