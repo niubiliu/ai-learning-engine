@@ -1,7 +1,7 @@
 {
-  "session_count": 57,
+  "session_count": 58,
   "current_domain_index": 2,
-  "current_concept_index": 10,
+  "current_concept_index": 11,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -59,7 +59,8 @@
     "Code Review",
     "Semantic Search",
     "Conversational Search",
-    "Retrieval-based QA"
+    "Retrieval-based QA",
+    "Text Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -832,6 +833,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "ai_content_generation",
+        "label": "AI Content Generation",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1213,6 +1224,11 @@
       {
         "from": "ai_search",
         "to": "retrieval_based_qa",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_content_generation",
         "label": "包含"
       }
     ]
