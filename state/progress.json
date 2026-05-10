@@ -1,7 +1,7 @@
 {
-  "session_count": 58,
+  "session_count": 59,
   "current_domain_index": 2,
-  "current_concept_index": 11,
+  "current_concept_index": 12,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -60,7 +60,8 @@
     "Semantic Search",
     "Conversational Search",
     "Retrieval-based QA",
-    "Text Generation"
+    "Text Generation",
+    "Image Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -843,6 +844,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "image_generation",
+        "label": "Image Generation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1229,6 +1240,11 @@
       {
         "from": "Applications",
         "to": "ai_content_generation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_content_generation",
+        "to": "image_generation",
         "label": "包含"
       }
     ]
