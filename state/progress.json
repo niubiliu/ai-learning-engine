@@ -1,7 +1,7 @@
 {
-  "session_count": 59,
+  "session_count": 60,
   "current_domain_index": 2,
-  "current_concept_index": 12,
+  "current_concept_index": 13,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -61,7 +61,8 @@
     "Conversational Search",
     "Retrieval-based QA",
     "Text Generation",
-    "Image Generation"
+    "Image Generation",
+    "Audio Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -854,6 +855,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "audio_generation",
+        "label": "Audio Generation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1245,6 +1256,11 @@
       {
         "from": "ai_content_generation",
         "to": "image_generation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_content_generation",
+        "to": "audio_generation",
         "label": "包含"
       }
     ]
