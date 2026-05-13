@@ -1,7 +1,7 @@
 {
-  "session_count": 61,
+  "session_count": 62,
   "current_domain_index": 2,
-  "current_concept_index": 14,
+  "current_concept_index": 15,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -63,7 +63,8 @@
     "Text Generation",
     "Image Generation",
     "Audio Generation",
-    "Video Generation"
+    "Video Generation",
+    "Task Automation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -876,6 +877,26 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "ai_automation",
+        "label": "AI Automation",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
+      },
+      {
+        "id": "task_automation",
+        "label": "Task Automation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1277,6 +1298,16 @@
       {
         "from": "ai_content_generation",
         "to": "video_generation",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_automation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_automation",
+        "to": "task_automation",
         "label": "包含"
       }
     ]
