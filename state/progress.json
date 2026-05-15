@@ -1,7 +1,7 @@
 {
-  "session_count": 63,
+  "session_count": 64,
   "current_domain_index": 2,
-  "current_concept_index": 16,
+  "current_concept_index": 17,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -65,7 +65,8 @@
     "Audio Generation",
     "Video Generation",
     "Task Automation",
-    "Workflow Automation"
+    "Workflow Automation",
+    "Agent-based Automation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -908,6 +909,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "agent_based_automation",
+        "label": "Agent-based Automation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1324,6 +1335,11 @@
       {
         "from": "ai_automation",
         "to": "workflow_automation",
+        "label": "包含"
+      },
+      {
+        "from": "ai_automation",
+        "to": "agent_based_automation",
         "label": "包含"
       }
     ]
