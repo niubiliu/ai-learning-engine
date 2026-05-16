@@ -1,7 +1,7 @@
 {
-  "session_count": 64,
+  "session_count": 65,
   "current_domain_index": 2,
-  "current_concept_index": 17,
+  "current_concept_index": 18,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -66,7 +66,8 @@
     "Video Generation",
     "Task Automation",
     "Workflow Automation",
-    "Agent-based Automation"
+    "Agent-based Automation",
+    "Natural Language Data Query"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -919,6 +920,26 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "ai_data_analysis",
+        "label": "AI Data Analysis",
+        "group": "Applications",
+        "level": 2,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
+      },
+      {
+        "id": "natural_language_data_query",
+        "label": "Natural Language Data Query",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1340,6 +1361,16 @@
       {
         "from": "ai_automation",
         "to": "agent_based_automation",
+        "label": "包含"
+      },
+      {
+        "from": "Applications",
+        "to": "ai_data_analysis",
+        "label": "包含"
+      },
+      {
+        "from": "ai_data_analysis",
+        "to": "natural_language_data_query",
         "label": "包含"
       }
     ]
