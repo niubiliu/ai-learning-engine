@@ -1,7 +1,7 @@
 {
-  "session_count": 65,
+  "session_count": 66,
   "current_domain_index": 2,
-  "current_concept_index": 18,
+  "current_concept_index": 19,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -67,7 +67,8 @@
     "Task Automation",
     "Workflow Automation",
     "Agent-based Automation",
-    "Natural Language Data Query"
+    "Natural Language Data Query",
+    "Automated Reporting"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -940,6 +941,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "automated_reporting",
+        "label": "Automated Reporting",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1371,6 +1382,11 @@
       {
         "from": "ai_data_analysis",
         "to": "natural_language_data_query",
+        "label": "包含"
+      },
+      {
+        "from": "ai_data_analysis",
+        "to": "automated_reporting",
         "label": "包含"
       }
     ]
