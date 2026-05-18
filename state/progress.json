@@ -1,7 +1,7 @@
 {
-  "session_count": 66,
+  "session_count": 67,
   "current_domain_index": 2,
-  "current_concept_index": 19,
+  "current_concept_index": 20,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -68,7 +68,8 @@
     "Workflow Automation",
     "Agent-based Automation",
     "Natural Language Data Query",
-    "Automated Reporting"
+    "Automated Reporting",
+    "Data Insight Generation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -951,6 +952,16 @@
           "background": "#4facfe",
           "border": "#2d8fe0"
         }
+      },
+      {
+        "id": "data_insight_generation",
+        "label": "Data Insight Generation",
+        "group": "Applications",
+        "level": 3,
+        "color": {
+          "background": "#4facfe",
+          "border": "#2d8fe0"
+        }
       }
     ],
     "edges": [
@@ -1387,6 +1398,11 @@
       {
         "from": "ai_data_analysis",
         "to": "automated_reporting",
+        "label": "包含"
+      },
+      {
+        "from": "ai_data_analysis",
+        "to": "data_insight_generation",
         "label": "包含"
       }
     ]
