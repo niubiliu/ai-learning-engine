@@ -1,7 +1,7 @@
 {
-  "session_count": 68,
+  "session_count": 69,
   "current_domain_index": 3,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -70,7 +70,8 @@
     "Natural Language Data Query",
     "Automated Reporting",
     "Data Insight Generation",
-    "Neural Networks"
+    "Neural Networks",
+    "Feedforward Networks"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -983,6 +984,16 @@
           "background": "#43e97b",
           "border": "#2cc45a"
         }
+      },
+      {
+        "id": "feedforward_networks",
+        "label": "Feedforward Networks",
+        "group": "Model Principles",
+        "level": 3,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       }
     ],
     "edges": [
@@ -1434,6 +1445,11 @@
       {
         "from": "neural_network_foundations",
         "to": "neural_networks",
+        "label": "包含"
+      },
+      {
+        "from": "neural_network_foundations",
+        "to": "feedforward_networks",
         "label": "包含"
       }
     ]
