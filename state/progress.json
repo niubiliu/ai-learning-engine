@@ -1,7 +1,7 @@
 {
-  "session_count": 70,
+  "session_count": 71,
   "current_domain_index": 3,
-  "current_concept_index": 3,
+  "current_concept_index": 4,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -72,7 +72,8 @@
     "Data Insight Generation",
     "Neural Networks",
     "Feedforward Networks",
-    "Activation Functions"
+    "Activation Functions",
+    "Transformer"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1005,6 +1006,26 @@
           "background": "#43e97b",
           "border": "#2cc45a"
         }
+      },
+      {
+        "id": "transformer_architecture",
+        "label": "Transformer Architecture",
+        "group": "Model Principles",
+        "level": 2,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
+      },
+      {
+        "id": "transformer",
+        "label": "Transformer",
+        "group": "Model Principles",
+        "level": 3,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       }
     ],
     "edges": [
@@ -1466,6 +1487,16 @@
       {
         "from": "neural_network_foundations",
         "to": "activation_functions",
+        "label": "包含"
+      },
+      {
+        "from": "Model Principles",
+        "to": "transformer_architecture",
+        "label": "包含"
+      },
+      {
+        "from": "transformer_architecture",
+        "to": "transformer",
         "label": "包含"
       }
     ]
