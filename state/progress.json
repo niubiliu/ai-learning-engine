@@ -1,7 +1,7 @@
 {
-  "session_count": 76,
+  "session_count": 77,
   "current_domain_index": 3,
-  "current_concept_index": 9,
+  "current_concept_index": 10,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -78,7 +78,8 @@
     "Self-Attention",
     "Multi-Head Attention",
     "Encoder",
-    "Decoder"
+    "Decoder",
+    "Embedding Layer"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1091,6 +1092,16 @@
           "background": "#43e97b",
           "border": "#2cc45a"
         }
+      },
+      {
+        "id": "embedding_layer",
+        "label": "Embedding Layer",
+        "group": "Model Principles",
+        "level": 3,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       }
     ],
     "edges": [
@@ -1592,6 +1603,11 @@
       {
         "from": "model_components",
         "to": "decoder",
+        "label": "包含"
+      },
+      {
+        "from": "model_components",
+        "to": "embedding_layer",
         "label": "包含"
       }
     ]
