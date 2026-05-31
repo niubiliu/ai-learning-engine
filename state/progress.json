@@ -1,7 +1,7 @@
 {
-  "session_count": 79,
+  "session_count": 80,
   "current_domain_index": 3,
-  "current_concept_index": 12,
+  "current_concept_index": 13,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -81,7 +81,8 @@
     "Decoder",
     "Embedding Layer",
     "Output Layer",
-    "Pretraining"
+    "Pretraining",
+    "Training Data"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1134,6 +1135,16 @@
           "background": "#43e97b",
           "border": "#2cc45a"
         }
+      },
+      {
+        "id": "training_data",
+        "label": "Training Data",
+        "group": "Model Principles",
+        "level": 3,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       }
     ],
     "edges": [
@@ -1655,6 +1666,11 @@
       {
         "from": "training_process",
         "to": "pretraining",
+        "label": "包含"
+      },
+      {
+        "from": "training_process",
+        "to": "training_data",
         "label": "包含"
       }
     ]
