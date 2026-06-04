@@ -1,7 +1,7 @@
 {
-  "session_count": 83,
+  "session_count": 84,
   "current_domain_index": 3,
-  "current_concept_index": 16,
+  "current_concept_index": 17,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -85,7 +85,8 @@
     "Training Data",
     "Loss Functions",
     "Backpropagation",
-    "Gradient Descent"
+    "Gradient Descent",
+    "Scaling Laws"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1178,6 +1179,26 @@
           "background": "#43e97b",
           "border": "#2cc45a"
         }
+      },
+      {
+        "id": "model_scaling",
+        "label": "Model Scaling",
+        "group": "Model Principles",
+        "level": 2,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
+      },
+      {
+        "id": "scaling_laws",
+        "label": "Scaling Laws",
+        "group": "Model Principles",
+        "level": 3,
+        "color": {
+          "background": "#43e97b",
+          "border": "#2cc45a"
+        }
       }
     ],
     "edges": [
@@ -1719,6 +1740,16 @@
       {
         "from": "training_process",
         "to": "gradient_descent",
+        "label": "包含"
+      },
+      {
+        "from": "Model Principles",
+        "to": "model_scaling",
+        "label": "包含"
+      },
+      {
+        "from": "model_scaling",
+        "to": "scaling_laws",
         "label": "包含"
       }
     ]
