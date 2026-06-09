@@ -1,7 +1,7 @@
 {
-  "session_count": 88,
+  "session_count": 89,
   "current_domain_index": 4,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -90,7 +90,8 @@
     "Parameter Scaling",
     "Data Scaling",
     "Compute Scaling",
-    "Vectors"
+    "Vectors",
+    "Matrices"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1253,6 +1254,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "matrices",
+        "label": "Matrices",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1829,6 +1840,11 @@
       {
         "from": "linear_algebra",
         "to": "vectors",
+        "label": "包含"
+      },
+      {
+        "from": "linear_algebra",
+        "to": "matrices",
         "label": "包含"
       }
     ]
