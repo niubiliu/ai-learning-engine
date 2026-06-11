@@ -1,7 +1,7 @@
 {
-  "session_count": 90,
+  "session_count": 91,
   "current_domain_index": 4,
-  "current_concept_index": 3,
+  "current_concept_index": 4,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -92,7 +92,8 @@
     "Compute Scaling",
     "Vectors",
     "Matrices",
-    "Matrix Multiplication"
+    "Matrix Multiplication",
+    "Eigenvalues"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1275,6 +1276,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "eigenvalues",
+        "label": "Eigenvalues",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1861,6 +1872,11 @@
       {
         "from": "linear_algebra",
         "to": "matrix_multiplication",
+        "label": "包含"
+      },
+      {
+        "from": "linear_algebra",
+        "to": "eigenvalues",
         "label": "包含"
       }
     ]
