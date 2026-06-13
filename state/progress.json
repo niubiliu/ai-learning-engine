@@ -1,7 +1,7 @@
 {
-  "session_count": 92,
+  "session_count": 93,
   "current_domain_index": 4,
-  "current_concept_index": 5,
+  "current_concept_index": 6,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -94,7 +94,8 @@
     "Matrices",
     "Matrix Multiplication",
     "Eigenvalues",
-    "Eigenvectors"
+    "Eigenvectors",
+    "Probability"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1297,6 +1298,26 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "probability_and_statistics",
+        "label": "Probability and Statistics",
+        "group": "Math Foundations",
+        "level": 2,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
+      },
+      {
+        "id": "probability",
+        "label": "Probability",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1893,6 +1914,16 @@
       {
         "from": "linear_algebra",
         "to": "eigenvectors",
+        "label": "包含"
+      },
+      {
+        "from": "Math Foundations",
+        "to": "probability_and_statistics",
+        "label": "包含"
+      },
+      {
+        "from": "probability_and_statistics",
+        "to": "probability",
         "label": "包含"
       }
     ]
