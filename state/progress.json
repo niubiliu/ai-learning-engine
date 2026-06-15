@@ -1,7 +1,7 @@
 {
-  "session_count": 94,
+  "session_count": 95,
   "current_domain_index": 4,
-  "current_concept_index": 7,
+  "current_concept_index": 8,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -96,7 +96,8 @@
     "Eigenvalues",
     "Eigenvectors",
     "Probability",
-    "Random Variables"
+    "Random Variables",
+    "Probability Distributions"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1329,6 +1330,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "probability_distributions",
+        "label": "Probability Distributions",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1940,6 +1951,11 @@
       {
         "from": "probability_and_statistics",
         "to": "random_variables",
+        "label": "包含"
+      },
+      {
+        "from": "probability_and_statistics",
+        "to": "probability_distributions",
         "label": "包含"
       }
     ]
