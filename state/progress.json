@@ -1,7 +1,7 @@
 {
-  "session_count": 95,
+  "session_count": 96,
   "current_domain_index": 4,
-  "current_concept_index": 8,
+  "current_concept_index": 9,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -97,7 +97,8 @@
     "Eigenvectors",
     "Probability",
     "Random Variables",
-    "Probability Distributions"
+    "Probability Distributions",
+    "Expectation"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1340,6 +1341,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "expectation",
+        "label": "Expectation",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1956,6 +1967,11 @@
       {
         "from": "probability_and_statistics",
         "to": "probability_distributions",
+        "label": "包含"
+      },
+      {
+        "from": "probability_and_statistics",
+        "to": "expectation",
         "label": "包含"
       }
     ]
