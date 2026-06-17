@@ -1,7 +1,7 @@
 {
-  "session_count": 96,
+  "session_count": 97,
   "current_domain_index": 4,
-  "current_concept_index": 9,
+  "current_concept_index": 10,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -98,7 +98,8 @@
     "Probability",
     "Random Variables",
     "Probability Distributions",
-    "Expectation"
+    "Expectation",
+    "Variance"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1351,6 +1352,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "variance",
+        "label": "Variance",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1972,6 +1983,11 @@
       {
         "from": "probability_and_statistics",
         "to": "expectation",
+        "label": "包含"
+      },
+      {
+        "from": "probability_and_statistics",
+        "to": "variance",
         "label": "包含"
       }
     ]
