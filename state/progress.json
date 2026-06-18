@@ -1,7 +1,7 @@
 {
-  "session_count": 97,
+  "session_count": 98,
   "current_domain_index": 4,
-  "current_concept_index": 10,
+  "current_concept_index": 11,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -99,7 +99,8 @@
     "Random Variables",
     "Probability Distributions",
     "Expectation",
-    "Variance"
+    "Variance",
+    "Gradient Descent"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1362,6 +1363,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "optimization",
+        "label": "Optimization",
+        "group": "Math Foundations",
+        "level": 2,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -1988,6 +1999,11 @@
       {
         "from": "probability_and_statistics",
         "to": "variance",
+        "label": "包含"
+      },
+      {
+        "from": "Math Foundations",
+        "to": "optimization",
         "label": "包含"
       }
     ]
