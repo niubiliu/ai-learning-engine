@@ -1,7 +1,7 @@
 {
-  "session_count": 98,
+  "session_count": 99,
   "current_domain_index": 4,
-  "current_concept_index": 11,
+  "current_concept_index": 12,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -100,7 +100,8 @@
     "Probability Distributions",
     "Expectation",
     "Variance",
-    "Gradient Descent"
+    "Gradient Descent",
+    "Convex Optimization"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1373,6 +1374,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "convex_optimization",
+        "label": "Convex Optimization",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -2004,6 +2015,11 @@
       {
         "from": "Math Foundations",
         "to": "optimization",
+        "label": "包含"
+      },
+      {
+        "from": "optimization",
+        "to": "convex_optimization",
         "label": "包含"
       }
     ]
