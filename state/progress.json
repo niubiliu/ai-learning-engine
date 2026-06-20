@@ -1,7 +1,7 @@
 {
-  "session_count": 99,
+  "session_count": 100,
   "current_domain_index": 4,
-  "current_concept_index": 12,
+  "current_concept_index": 13,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -101,7 +101,8 @@
     "Expectation",
     "Variance",
     "Gradient Descent",
-    "Convex Optimization"
+    "Convex Optimization",
+    "Stochastic Optimization"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1384,6 +1385,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "stochastic_optimization",
+        "label": "Stochastic Optimization",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -2020,6 +2031,11 @@
       {
         "from": "optimization",
         "to": "convex_optimization",
+        "label": "包含"
+      },
+      {
+        "from": "optimization",
+        "to": "stochastic_optimization",
         "label": "包含"
       }
     ]
