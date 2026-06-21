@@ -1,7 +1,7 @@
 {
-  "session_count": 100,
+  "session_count": 101,
   "current_domain_index": 4,
-  "current_concept_index": 13,
+  "current_concept_index": 14,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -102,7 +102,8 @@
     "Variance",
     "Gradient Descent",
     "Convex Optimization",
-    "Stochastic Optimization"
+    "Stochastic Optimization",
+    "Entropy"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1395,6 +1396,26 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "information_theory",
+        "label": "Information Theory",
+        "group": "Math Foundations",
+        "level": 2,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
+      },
+      {
+        "id": "entropy",
+        "label": "Entropy",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -2036,6 +2057,16 @@
       {
         "from": "optimization",
         "to": "stochastic_optimization",
+        "label": "包含"
+      },
+      {
+        "from": "Math Foundations",
+        "to": "information_theory",
+        "label": "包含"
+      },
+      {
+        "from": "information_theory",
+        "to": "entropy",
         "label": "包含"
       }
     ]
