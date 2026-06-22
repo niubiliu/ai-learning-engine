@@ -1,7 +1,7 @@
 {
-  "session_count": 101,
+  "session_count": 102,
   "current_domain_index": 4,
-  "current_concept_index": 14,
+  "current_concept_index": 15,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -103,7 +103,8 @@
     "Gradient Descent",
     "Convex Optimization",
     "Stochastic Optimization",
-    "Entropy"
+    "Entropy",
+    "Cross Entropy"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1416,6 +1417,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "cross_entropy",
+        "label": "Cross Entropy",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -2067,6 +2078,11 @@
       {
         "from": "information_theory",
         "to": "entropy",
+        "label": "包含"
+      },
+      {
+        "from": "information_theory",
+        "to": "cross_entropy",
         "label": "包含"
       }
     ]
