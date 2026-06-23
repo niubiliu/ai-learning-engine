@@ -1,7 +1,7 @@
 {
-  "session_count": 102,
+  "session_count": 103,
   "current_domain_index": 4,
-  "current_concept_index": 15,
+  "current_concept_index": 16,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -104,7 +104,8 @@
     "Convex Optimization",
     "Stochastic Optimization",
     "Entropy",
-    "Cross Entropy"
+    "Cross Entropy",
+    "KL Divergence"
   ],
   "knowledge_graph": {
     "nodes": [
@@ -1427,6 +1428,16 @@
           "background": "#fa8231",
           "border": "#e06010"
         }
+      },
+      {
+        "id": "kl_divergence",
+        "label": "KL Divergence",
+        "group": "Math Foundations",
+        "level": 3,
+        "color": {
+          "background": "#fa8231",
+          "border": "#e06010"
+        }
       }
     ],
     "edges": [
@@ -2083,6 +2094,11 @@
       {
         "from": "information_theory",
         "to": "cross_entropy",
+        "label": "包含"
+      },
+      {
+        "from": "information_theory",
+        "to": "kl_divergence",
         "label": "包含"
       }
     ]
