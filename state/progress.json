@@ -1,7 +1,7 @@
 {
-  "session_count": 103,
-  "current_domain_index": 4,
-  "current_concept_index": 16,
+  "session_count": 104,
+  "current_domain_index": 0,
+  "current_concept_index": 1,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -105,7 +105,8 @@
     "Stochastic Optimization",
     "Entropy",
     "Cross Entropy",
-    "KL Divergence"
+    "KL Divergence",
+    "AI Agents"
   ],
   "knowledge_graph": {
     "nodes": [
