@@ -1,7 +1,7 @@
 {
-  "session_count": 104,
+  "session_count": 105,
   "current_domain_index": 0,
-  "current_concept_index": 1,
+  "current_concept_index": 2,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -106,7 +106,8 @@
     "Entropy",
     "Cross Entropy",
     "KL Divergence",
-    "AI Agents"
+    "AI Agents",
+    "Multi-Agent Systems"
   ],
   "knowledge_graph": {
     "nodes": [
