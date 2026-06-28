@@ -1,7 +1,7 @@
 {
-  "session_count": 107,
+  "session_count": 108,
   "current_domain_index": 0,
-  "current_concept_index": 4,
+  "current_concept_index": 5,
   "learned_concepts": [
     "AI Agents",
     "Multi-Agent Systems",
@@ -109,7 +109,8 @@
     "AI Agents",
     "Multi-Agent Systems",
     "RAG (Retrieval-Augmented Generation)",
-    "Workflow Systems"
+    "Workflow Systems",
+    "Tool Calling"
   ],
   "knowledge_graph": {
     "nodes": [
